@@ -12,11 +12,20 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
+        Permission::create([
+            'name' => 'access_dashboard',
+            'description' => 'Acceder al dashboard' // Permiso para acceder al dashboard
+        ]);
+
         // Módulo Permisos
+        Permission::create([
+            'name' => 'access_permission',
+            'description' => 'Gestionar Roles y Permisos' // Permiso para gestionar roles y permisos
+        ]);
         // Módulo Tiendas
         Permission::create([
             'name' => 'create_store',
-            'description' => 'Visualizar formulario de creación' // Permiso para ver el formulario
+            'description' => 'Visualizar formulario de creación' // Permiso para ver el formulario y ver el listado
         ]);
         Permission::create([
             'name' => 'save_store',
