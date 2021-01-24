@@ -1,73 +1,62 @@
-@extends('layouts.app')
+@extends('layouts.appLanding')
+
+@section('activeLogin')
+    active
+@endsection
+
+@section('title')
+    Unistore | Login
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 md-padding">
+        <h1 class="align-center">Accede a tu cuenta</h1>
+        <br>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+        <form class="signin" action="{{ route('login') }}" method="post">
+            @csrf
+            <input id="dni" type="text" class="form-control @error('dni') is-invalid @enderror" name="dni" placeholder="Documento de Identidad" value="{{ old('dni') }}" required autocomplete="dni" autofocus>
+            @error('dni')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+            <br>
 
-                        <div class="form-group row">
-                            <label for="dni" class="col-md-4 col-form-label text-md-right">{{ __('Document DNI') }}</label>
+            <input id="password" type="password" placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+            <br>
 
-                            <div class="col-md-6">
-                                <input id="dni" type="dni" class="form-control @error('dni') is-invalid @enderror" name="dni" value="{{ old('dni') }}" required autocomplete="dni" autofocus>
+            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+            <label class="form-check-label" for="remember">
+                {{ __('Remember Me') }}
+            </label>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+            <br>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            <button type="submit" class="btn btn-primary">Sign In</button>
+            @if (Route::has('password.request'))
+                <a href="#forgin-password" data-action="Forgot-Password" class="xs-margin">Password recovery ></a>
+            @endif
+            <br><br>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+            <p>
+                If you already have an account with us, please login.
+            </p>
+            <hr class="offset-xs">
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+            <a href="#facebook" class="btn btn-facebook"> <i class="ion-social-facebook"></i> Login with Facebook </a>
+            <hr class="offset-sm">
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+            <p>
+                No tienes una cuenta? Crear una ahora! <a href="{{ route('register') }}"> Crea cuenta > </a>
+            </p>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
-</div>
 @endsection

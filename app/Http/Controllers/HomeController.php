@@ -27,6 +27,6 @@ class HomeController extends Controller
     }
 
     public function dashboard() {
-        return 'Este es el dashboard';
+        return view('dashboard.home');
     }
 }
