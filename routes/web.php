@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function (){
         // Store: Guarda en la BD la tienda
         Route::post('shop/store', 'ShopController@store')->name('shop.store')
             ->middleware('permission:save_store');
+
+
+
         // Edit: Mostrar el formulario de actualización
         Route::get('tienda/actualizar/{id}', 'ShopController@edit')->name('shop.edit')
             ->middleware('permission:edit_store');

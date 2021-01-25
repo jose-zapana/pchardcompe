@@ -297,13 +297,13 @@
                             @csrf
                         </form>
                     </li>
-
+                    @can('access_dashboard')
                     <li>
                         <a href="{{ route('dashboard') }}">
                             Dashboard
                         </a>
                     </li>
-
+                    @endcan
                 </ul>
             @endguest
         </div><!--/.nav-collapse -->

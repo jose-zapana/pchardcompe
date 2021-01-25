@@ -166,7 +166,7 @@
                 <ul class="submenu">
 
                     <li class=" @yield('activeListShop') ">
-                        <a href="#">
+                        <a href="{{ route('shop.index') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Listar Tiendas
                         </a>
@@ -176,7 +176,7 @@
                     </li>
 
                     <li class=" @yield('activeCreateShop') ">
-                        <a href="#">
+                        <a href="{{ route('shop.create') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Crear Tienda
                         </a>
