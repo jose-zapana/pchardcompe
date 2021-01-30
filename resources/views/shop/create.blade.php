@@ -34,12 +34,13 @@
 @endsection
 
 @section('content')
-    <form class="form-horizontal" action="">
+    <form class="form-horizontal" id="formCreate" data-url="{{ route('shop.store') }}">
+        @csrf
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nombre de Tienda </label>
 
             <div class="col-sm-9">
-                <input type="text" id="name" name="name" placeholder="Ejm: CompuPlaza" class="col-xs-10 col-sm-5" />
+                <input type="text" id="name" name="name" placeholder="Ejm: CompuPlaza" class="col-xs-10 col-sm-5" required />
             </div>
         </div>
 
@@ -47,7 +48,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Dirección de Tienda </label>
 
             <div class="col-sm-9">
-                <input type="text" id="address" name="address" placeholder="Ejm: CompuPlaza" class="col-xs-10 col-sm-5" />
+                <input type="text" id="address" name="address" placeholder="Ejm: Av. Perú #123" class="col-xs-10 col-sm-5" required />
             </div>
         </div>
 
@@ -55,7 +56,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Teléfono de Tienda </label>
 
             <div class="col-sm-9">
-                <input type="text" id="phone" name="phone" placeholder="Ejm: CompuPlaza" class="col-xs-10 col-sm-5" />
+                <input type="text" id="phone" name="phone" placeholder="Ejm: 965885874" class="col-xs-10 col-sm-5" />
             </div>
         </div>
 
@@ -77,5 +78,5 @@
 @endsection
 
 @section('scripts')
-
+    <script src="{{ asset('js/shop/create.js') }}"></script>
 @endsection
