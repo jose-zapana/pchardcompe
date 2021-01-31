@@ -185,7 +185,7 @@
                     </li>
 
                     <li class=" @yield('activeRestoreShop') ">
-                        <a href="#">
+                        <a href="{{ route('shop.trashed') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Restaurar Tiendas
                         </a>

@@ -56,6 +56,9 @@ Route::middleware('auth')->group(function (){
         // Restore: Restaurar una tienda
         Route::post('shop/restore', 'ShopController@restore')->name('shop.restore')
             ->middleware('permission:restore_store');
+
+
+
     });
 });
 

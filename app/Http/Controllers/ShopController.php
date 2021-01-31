@@ -131,4 +131,32 @@ class ShopController extends Controller
 
         return response()->json($validator->messages(), 200);
     }
+
+    public function trashed()
+    {
+        $shops = Shop::onlyTrashed()->get();
+        return view('shop.restore', compact('shops'));
+    }
+
+    public function restore( Request $request )
+    {
+        $rules = [
+            'id' => 'required|exists:shops,id',
+        ];
+
+        $messages = [
+            'id.required' => 'No se ha recibido el identificador de la tienda.',
+            'id.exists' => 'La tienda no existe en la base de datos.',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ( !$validator->fails() )
+        {
+            $shop = Shop::onlyTrashed()->where('id', $request->get('id'))
+                            ->restore();
+        }
+
+        return response()->json($validator->messages(), 200);
+    }
 }
