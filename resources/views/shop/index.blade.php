@@ -52,15 +52,38 @@
             <td>{{ $shop->address }}</td>
             <td>{{ $shop->phone }}</td>
             <td>
-                <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
-                <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                <a href="{{ route('shop.edit', $shop->id) }}" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
+                <a data-delete="{{ $shop->id }}" data-phone="{{ $shop->phone }}" data-address="{{ $shop->address }}" data-name="{{ $shop->name }}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
             </td>
         </tr>
         @endforeach
         </tbody>
     </table>
+    <div id="modalDelete" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Confirmar eliminación</h4>
+                </div>
+                <form id="formDelete" data-url="{{ route('shop.destroy') }}">
+                    @csrf
+                    <div class="modal-body">
+                        <input type="hidden" id="id_shop" name="id">
+                        <p id="nameDelete"></p>
+                        <p id="addressDelete"></p>
+                        <p id="phoneDelete"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-danger">Aceptar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
-
+    <script src="{{ asset('js/shop/delete.js') }}"></script>
 @endsection
