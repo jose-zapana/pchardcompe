@@ -63,11 +63,12 @@
 
         <div class="clearfix form-actions">
             <div class="col-md-offset-3 col-md-9">
+                @can('update_store')
                 <button class="btn btn-info" type="submit">
                     <i class="ace-icon fa fa-check bigger-110"></i>
                     Guardar cambios
                 </button>
-
+                @endcan
                 &nbsp; &nbsp; &nbsp;
                 <a href="{{ route('shop.index') }}" class="btn btn-danger" >
                     <i class="ace-icon fa fa-undo bigger-110"></i>

@@ -14,4 +14,9 @@ class Shop extends Model
     protected $dates = ['delete_at'];
 
     // TODO: Faltan las relaciones
+    public function categories()
+    {
+        return $this->hasMany('App\Category');
+    }
+
 }

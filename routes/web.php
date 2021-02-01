@@ -58,7 +58,10 @@ Route::middleware('auth')->group(function (){
             ->middleware('permission:restore_store');
 
 
-
+        // TODO: Rutas módulo Categoría
+        // Index: Muestra el listado de categorias
+        Route::get('categorías', 'CategoryController@index')->name('category.index')
+            ->middleware('permission:create_store');
     });
 });
 

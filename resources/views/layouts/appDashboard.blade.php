@@ -151,6 +151,7 @@
             </li>
 
             {{-- Administrador --}}
+            @can('create_store')
             <li class=" @yield('openModShop') ">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-archive"></i>
@@ -183,7 +184,7 @@
 
                         <b class="arrow"></b>
                     </li>
-
+                    @can('restore_store')
                     <li class=" @yield('activeRestoreShop') ">
                         <a href="{{ route('shop.trashed') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
@@ -192,10 +193,10 @@
 
                         <b class="arrow"></b>
                     </li>
-
+                    @endcan
                 </ul>
             </li>
-
+            @endcan
             <li class=" @yield('openModCategory') ">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-cart-plus"></i>
@@ -211,7 +212,7 @@
                 <ul class="submenu">
 
                     <li class=" @yield('activeListCategory') ">
-                        <a href="#">
+                        <a href="{{ route('category.index') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Listar categorías
                         </a>

@@ -52,13 +52,18 @@
             <td>{{ $shop->address }}</td>
             <td>{{ $shop->phone }}</td>
             <td>
+                @can('edit_store')
                 <a href="{{ route('shop.edit', $shop->id) }}" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
+                @endcan
+                @can('destroy_store')
                 <a data-delete="{{ $shop->id }}" data-phone="{{ $shop->phone }}" data-address="{{ $shop->address }}" data-name="{{ $shop->name }}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                @endcan
             </td>
         </tr>
         @endforeach
         </tbody>
     </table>
+    @can('destroy_store')
     <div id="modalDelete" class="modal fade" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -82,6 +87,7 @@
             </div>
         </div>
     </div>
+    @endcan
 @endsection
 
 @section('scripts')

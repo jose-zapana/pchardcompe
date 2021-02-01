@@ -52,12 +52,15 @@
             <td>{{ $shop->address }}</td>
             <td>{{ $shop->phone }}</td>
             <td>
+                @can('restore_store')
                 <a data-restore="{{ $shop->id }}" data-phone="{{ $shop->phone }}" data-address="{{ $shop->address }}" data-name="{{ $shop->name }}" class="btn btn-success btn-xs"><i class="fa fa-refresh"></i></a>
+                @endcan
             </td>
         </tr>
         @endforeach
         </tbody>
     </table>
+    @can('restore_store')
     <div id="modalRestore" class="modal fade" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -82,6 +85,7 @@
             </div>
         </div>
     </div>
+    @endcan
 @endsection
 
 @section('scripts')
