@@ -34,7 +34,7 @@
 @endsection
 
 @section('content')
-    <a class="btn btn-success">
+    <a id="newCategory" class="btn btn-success">
         <i class="icon-2x fa fa-plus"></i> Nueva Categoría
     </a>
     <hr>
@@ -57,7 +57,7 @@
             <td>{{ $category->description }}</td>
             <td>
                 @if($category->image)
-                    <img src="{{ asset('images/category/'.$category->image) }}" alt="{{ $category->name }}">
+                    <img src="{{ asset('images/category/'.$category->image) }}" alt="{{ $category->name }}" width="100px" height="100px">
                 @else
                     <img src="{{ asset('images/no_image.jpg') }}" alt="No image" width="100px" height="100px">
                 @endif
@@ -82,10 +82,41 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Nueva Categoría</h4>
                 </div>
-                <form id="formCreate" data-url="">
+                <form id="formCreate" class="form-horizontal" data-url="{{ route('category.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="name"> Categoría </label>
 
+                            <div class="col-sm-9">
+                                <input type="text" id="name" name="name" class="col-xs-10 col-sm-10" placeholder="Ejm: Laptops" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="description"> Descripción </label>
+
+                            <div class="col-sm-9">
+                                <textarea name="description" id="description" cols="30" rows="10" class="col-xs-10 col-sm-10"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="image"> Imagen </label>
+
+                            <div class="col-sm-9">
+                                <input type="file" id="image" name="image" class="col-xs-10 col-sm-10" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="shop"> Tienda </label>
+
+                            <div class="col-sm-9">
+                                <select name="shop" id="shop" class="col-xs-10 col-sm-10">
+                                    @foreach( $shops as $shop )
+                                        <option value="{{ $shop->id }}">{{ $shop->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>

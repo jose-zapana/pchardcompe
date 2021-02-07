@@ -62,6 +62,8 @@ Route::middleware('auth')->group(function (){
         // Index: Muestra el listado de categorias
         Route::get('categorías', 'CategoryController@index')->name('category.index')
             ->middleware('permission:create_store');
+        Route::post('category/store', 'CategoryController@store')->name('category.store')
+            ->middleware('permission:create_store');
     });
 });
 
