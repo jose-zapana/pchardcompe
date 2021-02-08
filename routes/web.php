@@ -35,9 +35,6 @@ Route::middleware('auth')->group(function (){
         // Store: Guarda en la BD la tienda
         Route::post('shop/store', 'ShopController@store')->name('shop.store')
             ->middleware('permission:save_store');
-
-
-
         // Edit: Mostrar el formulario de actualización
         Route::get('tienda/actualizar/{id}', 'ShopController@edit')->name('shop.edit')
             ->middleware('permission:edit_store');
@@ -47,8 +44,6 @@ Route::middleware('auth')->group(function (){
         // Destroy: Eliminar la tienda
         Route::post('shop/destroy', 'ShopController@destroy')->name('shop.destroy')
             ->middleware('permission:destroy_store');
-
-
 
         // Trashed: Devuelve las tiendas eliminadas
         Route::get('tiendas/eliminadas', 'ShopController@trashed')->name('shop.trashed')
@@ -64,7 +59,33 @@ Route::middleware('auth')->group(function (){
             ->middleware('permission:create_store');
         Route::post('category/store', 'CategoryController@store')->name('category.store')
             ->middleware('permission:create_store');
+        Route::post('category/update', 'CategoryController@update')->name('category.update')
+            ->middleware('permission:update_store');
+        Route::post('category/destroy', 'CategoryController@destroy')->name('category.destroy')
+            ->middleware('permission:destroy_store');
     });
 });
+
+// Customer
+// Customer_address
+// method_payment
+// method_ship
+
+// ------
+// Product
+// Product_image
+// Product_info
+// -----
+
+//Procesos
+// cart
+// cart_product
+// Sale
+// Sale_product
+// Notification
+// Comment
+// Banner
+// Product_top
+// Information
 
 

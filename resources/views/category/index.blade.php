@@ -134,16 +134,50 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Modificar categoría</h4>
                 </div>
-                <form id="formEdit" data-url="">
+                <form id="formEdit" class="form-horizontal" data-url="{{ route('category.update') }}" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="category_id" id="category_id">
                     <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="nameE"> Categoría </label>
 
+                            <div class="col-sm-9">
+                                <input type="text" id="nameE" name="name" class="col-xs-10 col-sm-10" placeholder="Ejm: Laptops" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="descriptionE"> Descripción </label>
+
+                            <div class="col-sm-9">
+                                <textarea name="description" id="descriptionE" cols="30" rows="5" class="col-xs-10 col-sm-10"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="imageE"> Imagen </label>
+
+                            <div class="col-sm-9">
+                                <input type="file" id="imageE" name="image" class="col-xs-10 col-sm-10" />
+                                <img src="" id="image-preview" width="100px" height="100px" alt="Imagen previsualizacion">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="shopE"> Tienda </label>
+
+                            <div class="col-sm-9">
+                                <select name="shop" id="shopE" class="col-xs-10 col-sm-10">
+                                    @foreach( $shops as $shop )
+                                        <option value="{{ $shop->id }}">{{ $shop->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
@@ -155,14 +189,14 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Confirmar eliminación</h4>
                 </div>
-                <form id="formDelete" data-url="">
+                <form id="formDelete" data-url="{{ route('category.destroy') }}">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" id="id_shop" name="id">
+                        <input type="hidden" id="category_id" name="category_id">
                         <p id="nameDelete"></p>
                         <p id="descriptionDelete"></p>
-                        <p id="imageDelete"></p>
-                        <p id="tiendaDelete"></p>
+                        <p id="shopDelete"></p>
+                        <img src="" id="imageDelete" alt="Imagen Preview" width="100px" height="100px" >
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
