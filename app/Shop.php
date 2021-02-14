@@ -19,4 +19,14 @@ class Shop extends Model
         return $this->hasMany('App\Category');
     }
 
+    public function payments()
+    {
+        return $this->hasMany('App\MethodPayment');
+    }
+
+    public function shippings()
+    {
+        return $this->hasMany('App\MethodShipping');
+    }
+
 }
