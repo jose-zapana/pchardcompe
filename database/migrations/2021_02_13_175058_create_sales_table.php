@@ -15,6 +15,21 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('cart_id');
+            $table->enum('state', ['checked','prepared', 'sent', 'confirmed']);
+            $table->decimal('total', 8, 2);
+            $table->unsignedBigInteger('method_payment_id');
+            $table->unsignedBigInteger('method_shipping_id');
+            $table->unsignedBigInteger('customer_address_id');
+            $table->foreign('cart_id')
+                ->references('id')->on('carts');
+            $table->foreign('method_payment_id')
+                ->references('id')->on('method_payments');
+            $table->foreign('method_shipping_id')
+                ->references('id')->on('method_shippings');
+            $table->foreign('customer_address_id')
+                ->references('id')->on('customer_addresses');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -13,4 +13,9 @@ class CustomerAddress extends Model
     {
         return $this->belongsTo('App\Customer');
     }
+
+    public function sales()
+    {
+        return $this->hasMany('App\Sale');
+    }
 }

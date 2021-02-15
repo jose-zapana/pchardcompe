@@ -13,4 +13,9 @@ class MethodShipping extends Model
     {
         $this->belongsTo('App\Shop');
     }
+
+    public function sales()
+    {
+        $this->hasMany('App\Sale');
+    }
 }

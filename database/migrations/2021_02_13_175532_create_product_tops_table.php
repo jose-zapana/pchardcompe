@@ -15,6 +15,11 @@ class CreateProductTopsTable extends Migration
     {
         Schema::create('product_tops', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')
+                ->references('id')->on('products');
+            $table->string('name-product');
+            $table->string('image-product');
             $table->timestamps();
         });
     }
