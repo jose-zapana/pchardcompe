@@ -1,4 +1,49 @@
 $(document).ready(function () {
+    $('#dynamic-table')
+    //.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
+        .DataTable( {
+            ajax: {
+                url: "/dashboard/all/shops",
+                dataSrc: 'data'
+            },
+            bAutoWidth: false,
+            "aoColumns": [
+                { data: 'id' },
+                { data: 'name' },
+                { data: 'address' },
+                { data: 'phone' },
+                /*{
+                    data: null,
+                    defaultContent: "<a data-edit=\'\' class=\'btn btn-success\'>Edit</a>"
+                }*/
+                //{ data: null, title: 'Action', wrap: true, "render": function (item) { return '<div class="btn-group"> <a href="{{ route(shop.edit, "'+item.id+'") }}" data-id="'+item.id+'" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a><a data-id="\'+item.id+\'" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a></div>' } },
+
+            ],
+            "aaSorting": [],
+
+
+            //"bProcessing": true,
+            //"bServerSide": true,
+            //"sAjaxSource": "http://127.0.0.1/table.php"	,
+
+            //,
+            //"sScrollY": "200px",
+            //"bPaginate": false,
+
+            //"sScrollX": "100%",
+            //"sScrollXInner": "120%",
+            //"bScrollCollapse": true,
+            //Note: if you are applying horizontal scrolling (sScrollX) on a ".table-bordered"
+            //you may want to wrap the table inside a "div.dataTables_borderWrap" element
+
+            //"iDisplayLength": 50
+
+
+            select: {
+                style: 'single'
+            },
+
+        } );
     $formDelete = $('#formDelete');
     $formDelete.on('submit', sendData);
 

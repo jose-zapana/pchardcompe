@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function (){
         // Destroy: Eliminar la tienda
         Route::post('shop/destroy', 'ShopController@destroy')->name('shop.destroy')
             ->middleware('permission:destroy_store');
+        Route::get('/all/shops', 'ShopController@getShops')->name('shop.get');
 
         // Trashed: Devuelve las tiendas eliminadas
         Route::get('tiendas/eliminadas', 'ShopController@trashed')->name('shop.trashed')
