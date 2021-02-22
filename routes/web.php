@@ -96,6 +96,26 @@ Route::middleware('auth')->group(function (){
             ->middleware('permission:update_permission');
         Route::post('permission/destroy', 'PermissionController@destroy')->name('permission.destroy')
             ->middleware('permission:destroy_permission');
+
+        // TODO: Rutas módulo Productos
+        // Index: Muestra el listado de productos
+        Route::get('productos', 'ProductController@index')->name('product.index')
+            ->middleware('permission:create_store');
+        // Create: Muestra el formulario de creación
+        Route::get('producto/crear', 'ProductController@create')->name('product.create')
+            ->middleware('permission:create_store');
+        // Store: Guarda en la BD el producto
+        Route::post('product/store', 'ProductController@store')->name('product.store')
+            ->middleware('permission:save_store');
+        // Edit: Mostrar el formulario de actualización
+        Route::get('producto/actualizar/{id}', 'ProductController@edit')->name('product.edit')
+            ->middleware('permission:edit_store');
+        // Update: Guarda la nueva información del producto
+        Route::post('product/update', 'ProductController@update')->name('product.update')
+            ->middleware('permission:update_store');
+        // Destroy: Eliminar el producto
+        Route::post('product/destroy', 'ProductController@destroy')->name('product.destroy')
+            ->middleware('permission:destroy_store');
     });
 });
 

@@ -232,6 +232,43 @@
 
                 </ul>
             </li>
+            @can('create_store')
+                <li class=" @yield('openModProduct') ">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-shopping-basket"></i>
+                        <span class="menu-text">
+                        M. Productos
+                    </span>
+
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+
+                        <li class=" @yield('activeListProduct') ">
+                            <a href="{{ route('product.index') }}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Listar Productos
+                            </a>
+
+                            <b class="arrow"></b>
+
+                        </li>
+
+                        <li class=" @yield('activeCreateProduct') ">
+                            <a href="{{ route('product.create') }}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Crear Producto
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                    </ul>
+                </li>
+            @endcan
             @can('access_permission')
             <li class=" @yield('openModAccess') ">
                 <a href="#" class="dropdown-toggle">
