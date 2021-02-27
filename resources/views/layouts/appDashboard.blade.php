@@ -233,6 +233,37 @@
                 </ul>
             </li>
 
+            <!--Mantenedor Direcciones-->
+
+            <li class=" @yield('openModAddress') ">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-map-marker"></i>
+                    <span class="menu-text">
+                        M. Direcciones
+                    </span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+
+                    <li class=" @yield('activeListAddress') ">
+                        <a href="{{ route('address.index') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Listar clientes
+                        </a>
+
+                        <b class="arrow"></b>
+
+                    </li>
+
+                </ul>
+            </li>
+
+            <!--Fin Mantenedor Direciones-->
+
             <li class=" @yield('activeMod') ">
                 <a href="#">
                     <i class="menu-icon fa fa-file-pdf-o"></i>

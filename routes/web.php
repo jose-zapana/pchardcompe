@@ -63,6 +63,22 @@ Route::middleware('auth')->group(function (){
             ->middleware('permission:update_store');
         Route::post('category/destroy', 'CategoryController@destroy')->name('category.destroy')
             ->middleware('permission:destroy_store');
+
+        //Todo: Rutas modulo Direcciones
+        Route::get('direcciones', 'CustomerAddressController@index')->name('address.index')
+            ->middleware('permission:create_store');
+        //Crear una nueva direccion
+        Route::post('address/store', 'CustomerAddressController@store')->name('address.store')
+            ->middleware('permission:create_store');
+        //Ruta para mostrar las direcciones de un cliente 
+        Route::get('direccion/mostrar/{id}', 'CustomerAddressController@show')->name('address.show')
+            ->middleware('permission:create_store');;
+        //Modificar una direccion de un cliente
+        Route::post('address/update', 'CustomerAddressController@update')->name('address.update')
+            ->middleware('permission:update_store');
+        //Eliminar una dirección de un cliente
+        Route::post('address/destroy', 'CustomerAddressController@destroy')->name('address.destroy')
+            ->middleware('permission:destroy_store');
     });
 });
 
