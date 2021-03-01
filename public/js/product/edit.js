@@ -2,6 +2,7 @@ $(document).ready(function () {
     /*$formCreate = $('#formCreate');
     $formCreate.on('submit', sendData);*/
 
+
     $('#btnNew').on('click', renderTemplateItem);
 
     $(document).on('click', '[data-delete]', deleteItem);
