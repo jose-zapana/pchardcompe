@@ -316,7 +316,7 @@
             </li>
             @endcan
             <li class=" @yield('activeMod') ">
-                <a href="#">
+                <a href="{{ route('middleware.check') }}">
                     <i class="menu-icon fa fa-file-pdf-o"></i>
                     <span class="menu-text">
                         Nuevo

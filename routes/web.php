@@ -117,6 +117,11 @@ Route::middleware('auth')->group(function (){
         Route::post('product/destroy', 'ProductController@destroy')->name('product.destroy')
             ->middleware('permission:destroy_store');
     });
+
+    Route::get('middleware/check', 'PermissionController@middlewareCheck')
+        ->name('middleware.check')
+        ->middleware('middlewareCheck:20,view');
+
 });
 
 // Customer
