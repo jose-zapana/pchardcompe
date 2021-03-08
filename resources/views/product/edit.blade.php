@@ -80,6 +80,7 @@
                             <div class="step-pane active" data-step="1">
                                 <div class="center">
                                     <div class="col-md-6">
+                                        <input type="hidden" name="idProduct" id="idProduct" value="{{ $product->id }}">
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label no-padding-right" for="name"> Nombre del producto </label>
 
@@ -144,12 +145,12 @@
                                             <div class="form-group">
                                                 <div class="col-sm-5">
                                                     <div class="col-sm-12">
-                                                        <input type="text" name="infos[]" class="form-control" />
+                                                        <input type="text" data-specification name="infos[]" class="form-control" />
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-5">
                                                     <div class="col-sm-12">
-                                                        <input type="text" name="specifications[]" class="form-control" />
+                                                        <input type="text" data-content name="specifications[]" class="form-control" />
                                                     </div>
                                                 </div>
 
@@ -200,16 +201,34 @@
                                             </div>
                                         </div>
                                         <div id="body-images"></div>
-                                        <template id="template-image">
+                                        <template id="template-image-old">
                                             <div class="form-group">
                                                 <div class="col-sm-5">
-                                                    <div class="col-sm-12">
-                                                        <input type="file" name="images[]" accept="image/jpeg,image/png,image/jpg" class="file-input" />
+                                                    <div class="col-sm-12 center">
+                                                        <img data-imageOld width="50px" height="50px">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-5">
                                                     <div class="col-sm-12">
-                                                        <input type="text" name="alts[]" class="form-control" />
+                                                        <input type="text" data-alt class="form-control" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-2">
+                                                    <button type="button" data-deleteImage class="btn btn-danger btn-xs"><i class="ace-icon fa fa-trash icon-animated-hand-pointer with"></i></button>
+                                                </div>
+                                            </div>
+                                        </template>
+                                        <template id="template-image">
+                                            <div class="form-group">
+                                                <div class="col-sm-5">
+                                                    <div class="col-sm-12">
+                                                        <input type="file" data-image name="images[]" accept="image/jpeg,image/png,image/jpg" class="file-input" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <div class="col-sm-12">
+                                                        <input type="text" data-alt name="alts[]" class="form-control" />
                                                     </div>
                                                 </div>
 

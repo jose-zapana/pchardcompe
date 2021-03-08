@@ -116,6 +116,12 @@ Route::middleware('auth')->group(function (){
         // Destroy: Eliminar el producto
         Route::post('product/destroy', 'ProductController@destroy')->name('product.destroy')
             ->middleware('permission:destroy_store');
+        Route::get('/obtener/infos/{idProduct}', 'ProductController@getInfo')
+            ->middleware('permission:edit_store');
+        Route::get('/obtener/images/{idProduct}', 'ProductController@getImages')
+            ->middleware('permission:edit_store');
+        Route::get('/delete/images/{idImage}', 'ProductController@deleteImages')
+            ->middleware('permission:edit_store');
     });
 
     Route::get('middleware/check', 'PermissionController@middlewareCheck')

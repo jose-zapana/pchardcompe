@@ -80,7 +80,7 @@ class ProductController extends Controller
                 {
                     // TODO: Tratamiento de un archivo de forma tradicional
                     //var_dump($image->getClientOriginalExtension());
-                    $path = public_path().'/images/category/';
+                    $path = public_path().'/images/product/';
                     $extension = $image->getClientOriginalExtension();
                     $filename = $alts[$num] . '.' . $extension;
                     $image->move($path, $filename);
@@ -115,7 +115,72 @@ class ProductController extends Controller
 
     public function update(ProductUpdateRequest $request)
     {
-        //
+        //var_dump( $request );
+        $validated = $request->validated();
+
+        // TODO: Esto debe estar en una transaccion
+
+        DB::beginTransaction();
+        try {
+            $product = Product::find($request->get('idProduct'));
+            // Modificar los datos
+
+
+            $infos = $request->get('infos');
+            $specifications = $request->get('specifications');
+            $images = $request->file('images');
+            $alts = $request->get('alts');
+
+            $categories = $request->get('categories');
+
+            // TODO: Sincronizamos las categorías
+            $product->categories()->sync($categories);
+
+            //var_dump( $specifications[0] );
+            // TODO: Creamos los ProductInfo
+            // TODO: Eliminar todos los productInfos anteriores
+            ProductInfo::where('product_id', $product->id)->delete();
+
+            for ( $i = 0; $i< sizeof($infos); $i++ )
+            {
+                //var_dump($infos[0]);
+                // TODO: Esta inserción puede fallar por lo que podriamos un try catch
+                ProductInfo::create([
+                    'product_id' => $product->id,
+                    'specification' => $infos[$i],
+                    'content' => $specifications[$i]
+                ]);
+            }
+
+            // TODO: Creamos las imágenes
+            if ( $images )
+            {
+                $num = 0;
+                foreach ( $images as $image )
+                {
+                    // TODO: Tratamiento de un archivo de forma tradicional
+                    //var_dump($image->getClientOriginalExtension());
+                    $path = public_path().'/images/product/';
+                    $extension = $image->getClientOriginalExtension();
+                    $filename = $alts[$num] . '.' . $extension;
+                    $image->move($path, $filename);
+                    ProductImage::create([
+                        'product_id' => $product->id,
+                        'image' => $filename,
+                        'alt' => $alts[$num]
+                    ]);
+                    $num++;
+                }
+            }
+
+            DB::commit();
+        } catch ( \Throwable $e ) {
+            DB::rollBack();
+            return response()->json(['message' => $e], 422);
+        }
+
+        return response()->json(['message' => 'Producto guardado con éxito.'], 200);
+
     }
 
     public function destroy(ProductDeleteRequest $request)
@@ -123,19 +188,35 @@ class ProductController extends Controller
         //
     }
 
-    public function getInfo( $product_id )
+    public function getInfo( $idProduct )
     {
-        $product = Product::find($product_id);
+        $product = Product::find($idProduct);
         $infos = $product->infos;
 
         return $infos;
     }
 
-    public function getImages( $product_id )
+    public function getImages( $idProduct )
     {
-        $product = Product::find($product_id);
+        $product = Product::find($idProduct);
         $images = $product->images;
 
         return $images;
+    }
+
+    public function deleteImages( $idImage )
+    {
+        $productImage = ProductImage::find($idImage);
+        $filename = public_path().'/images/product/'.$productImage->image;
+        if ( file_exists($filename) )
+        {
+            unlink($filename);
+            $productImage->delete();
+            return response()->json(['message' => 'Imagen eliminada con éxito.', 'status'=>'success'], 200);
+
+        }
+
+        return response()->json(['message' => 'No se encuentra la imagen.', 'status'=>'error'], 200);
+
     }
 }
