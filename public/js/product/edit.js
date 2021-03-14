@@ -1,7 +1,7 @@
 $(document).ready(function () {
     /*$formCreate = $('#formCreate');
     $formCreate.on('submit', sendData);*/
-    var idProduct = $('#idProduct').val();
+    var idProduct = $('#product_id').val();
     $.get('/dashboard/obtener/infos/'+idProduct, function (resp) {
         //console.log(resp)
         $.each(resp, function (key, info) {

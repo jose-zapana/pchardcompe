@@ -80,7 +80,7 @@
                             <div class="step-pane active" data-step="1">
                                 <div class="center">
                                     <div class="col-md-6">
-                                        <input type="hidden" name="idProduct" id="idProduct" value="{{ $product->id }}">
+                                        <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label no-padding-right" for="name"> Nombre del producto </label>
 
@@ -223,7 +223,7 @@
                                             <div class="form-group">
                                                 <div class="col-sm-5">
                                                     <div class="col-sm-12">
-                                                        <input type="file" data-image name="images[]" accept="image/jpeg,image/png,image/jpg" class="file-input" />
+                                                        <input type="file" data-image-new name="images[]" accept="image/jpeg,image/png,image/jpg" class="file-input" />
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-5">

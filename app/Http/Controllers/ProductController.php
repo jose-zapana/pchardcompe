@@ -12,6 +12,7 @@ use App\ProductInfo;
 use App\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -80,10 +81,31 @@ class ProductController extends Controller
                 {
                     // TODO: Tratamiento de un archivo de forma tradicional
                     //var_dump($image->getClientOriginalExtension());
-                    $path = public_path().'/images/product/';
+                    /*$path = public_path().'/images/product/';
                     $extension = $image->getClientOriginalExtension();
                     $filename = $alts[$num] . '.' . $extension;
                     $image->move($path, $filename);
+                    ProductImage::create([
+                        'product_id' => $product->id,
+                        'image' => $filename,
+                        'alt' => $alts[$num]
+                    ]);
+                    $num++;*/
+                    // TODO: Tratamiento de una imagen usando intervention image
+                    $path = public_path().'/images/product/';
+                    $extension = $image->getClientOriginalExtension();
+                    $filename = $alts[$num] . '.' . $extension;
+
+                    $img = Image::make($image);
+                    $img->resize(800, 500);
+
+                    $watermark = Image::make($path.'watermark.png');
+                    $watermark->resize(800, 500);
+
+                    $img->insert($watermark, 'center');
+
+                    $img->save($path.$filename, 70);
+
                     ProductImage::create([
                         'product_id' => $product->id,
                         'image' => $filename,
@@ -122,9 +144,14 @@ class ProductController extends Controller
 
         DB::beginTransaction();
         try {
-            $product = Product::find($request->get('idProduct'));
+            $product = Product::find($request->get('product_id'));
             // Modificar los datos
-
+            $product->name = $request->get('name');
+            $product->description = $request->get('description');
+            $product->stock = $request->get('stock');
+            $product->unit_price = $request->get('unit_price');
+            $product->shop_id = $request->get('shop');
+            $product->save();
 
             $infos = $request->get('infos');
             $specifications = $request->get('specifications');
@@ -158,12 +185,21 @@ class ProductController extends Controller
                 $num = 0;
                 foreach ( $images as $image )
                 {
-                    // TODO: Tratamiento de un archivo de forma tradicional
-                    //var_dump($image->getClientOriginalExtension());
+                    // TODO: Tratamiento de una imagen usando intervention image
                     $path = public_path().'/images/product/';
                     $extension = $image->getClientOriginalExtension();
                     $filename = $alts[$num] . '.' . $extension;
-                    $image->move($path, $filename);
+
+                    $img = Image::make($image);
+                    $img->resize(800, 500);
+
+                    $watermark = Image::make($path.'watermark.png');
+                    $watermark->resize(800, 500);
+
+                    $img->insert($watermark, 'center');
+
+                    $img->save($path.$filename, 70);
+
                     ProductImage::create([
                         'product_id' => $product->id,
                         'image' => $filename,
@@ -179,13 +215,16 @@ class ProductController extends Controller
             return response()->json(['message' => $e], 422);
         }
 
-        return response()->json(['message' => 'Producto guardado con éxito.'], 200);
+        return response()->json(['message' => 'Producto modificado con éxito.'], 200);
 
     }
 
     public function destroy(ProductDeleteRequest $request)
     {
-        //
+        $product = Product::find($request->get('product_id'));
+        $product->delete();
+        return response()->json(['message' => 'Producto eliminado con éxito.'], 200);
+
     }
 
     public function getInfo( $idProduct )
