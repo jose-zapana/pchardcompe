@@ -232,7 +232,38 @@
 
                 </ul>
             </li>
+            @can('create_store')
+                <li class=" @yield('openModProduct') ">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-shopping-basket"></i>
+                        <span class="menu-text">
+                        M. Productos
+                    </span>
 
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+
+                        <li class=" @yield('activeListProduct') ">
+                            <a href="{{ route('product.index') }}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Listar Productos
+                            </a>
+
+                            <b class="arrow"></b>
+
+                        </li>
+
+                        <li class=" @yield('activeCreateProduct') ">
+                            <a href="{{ route('product.create') }}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Crear Producto
+                            </a>
+
+<<<<<<< HEAD
             <!--Mantenedor Direcciones-->
 
             <li class=" @yield('openModAddress') ">
@@ -240,6 +271,20 @@
                     <i class="menu-icon fa fa-map-marker"></i>
                     <span class="menu-text">
                         M. Direcciones
+=======
+                            <b class="arrow"></b>
+                        </li>
+
+                    </ul>
+                </li>
+            @endcan
+            @can('access_permission')
+            <li class=" @yield('openModAccess') ">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-users"></i>
+                    <span class="menu-text">
+                        M. Accesos
+>>>>>>> master
                     </span>
 
                     <b class="arrow fa fa-angle-down"></b>
@@ -249,23 +294,54 @@
 
                 <ul class="submenu">
 
+<<<<<<< HEAD
                     <li class=" @yield('activeListAddress') ">
                         <a href="{{ route('address.index') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Listar clientes
+=======
+                    <li class=" @yield('activeListPermission') ">
+                        <a href="{{ route('permission.index') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Permisos
+>>>>>>> master
                         </a>
 
                         <b class="arrow"></b>
 
                     </li>
 
+<<<<<<< HEAD
                 </ul>
             </li>
 
             <!--Fin Mantenedor Direciones-->
 
+=======
+                    <li class=" @yield('activeListRoles') ">
+                        <a href="{{ route('role.index') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Roles
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class=" @yield('activeListUsers') ">
+                        <a href="{{ route('user.index') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Usuarios
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                </ul>
+            </li>
+            @endcan
+>>>>>>> master
             <li class=" @yield('activeMod') ">
-                <a href="#">
+                <a href="{{ route('middleware.check') }}">
                     <i class="menu-icon fa fa-file-pdf-o"></i>
                     <span class="menu-text">
                         Nuevo
