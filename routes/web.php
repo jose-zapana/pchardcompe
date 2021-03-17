@@ -65,6 +65,7 @@ Route::middleware('auth')->group(function (){
         Route::post('category/destroy', 'CategoryController@destroy')->name('category.destroy')
             ->middleware('permission:destroy_store');
 
+
         //Todo: Rutas modulo Direcciones
         Route::get('direcciones', 'CustomerAddressController@index')->name('address.index')
             ->middleware('permission:create_store');
@@ -80,6 +81,27 @@ Route::middleware('auth')->group(function (){
         //Eliminar una dirección de un cliente
         Route::post('address/destroy', 'CustomerAddressController@destroy')->name('address.destroy')
             ->middleware('permission:destroy_store');
+
+        // TODO: Rutas módulo Metodos de pago
+        Route::get('payment', 'MethodsPaymentController@index')->name('payment.index')
+        ->middleware('permission:view_payments');
+        Route::post('payment/store', 'MethodsPaymentController@store')->name('payment.store')
+        ->middleware('permission:store_payments');
+        Route::post('payment/update', 'MethodsPaymentController@update')->name('payment.update')
+        ->middleware('permission:update_payments');
+        Route::post('payment/destroy', 'MethodsPaymentController@destroy')->name('payment.destroy')
+        ->middleware('permission:delete_payments');
+
+        // TODO: Rutas módulo Envios
+        // Index: Muestra el listado de envios
+        Route::get('envios', 'MethodShippingController@index')->name('method_ship.index')
+            ->middleware('permission:view_shipping');
+        Route::post('method_ship/store', 'MethodShippingController@store')->name('method_ship.store')
+            ->middleware('permission:store_shipping');
+        Route::post('method_ship/update', 'MethodShippingController@update')->name('method_ship.update')
+            ->middleware('permission:update_shipping');
+        Route::post('method_ship/destroy', 'MethodShippingController@destroy')->name('method_ship.destroy')
+           ->middleware('permission:delete_shipping');
 
         // TODO: Rutas módulo Accesos
         Route::get('usuarios', 'UserController@index')->name('user.index')
@@ -132,6 +154,7 @@ Route::middleware('auth')->group(function (){
         // Destroy: Eliminar el producto
         Route::post('product/destroy', 'ProductController@destroy')->name('product.destroy')
             ->middleware('permission:destroy_store');
+      
         Route::get('/obtener/infos/{idProduct}', 'ProductController@getInfo')
             ->middleware('permission:edit_store');
         Route::get('/obtener/images/{idProduct}', 'ProductController@getImages')
@@ -139,6 +162,20 @@ Route::middleware('auth')->group(function (){
         Route::get('/delete/images/{idImage}', 'ProductController@deleteImages')
             ->middleware('permission:edit_store');
 
+
+        // TODO: CUSTOMER
+
+        // TODO: Rutas módulo Clientes
+        Route::get('clientes', 'CustomerController@index')->name('customer.index')
+            ->middleware('permission:list_customer');
+        Route::post('customer/store', 'CustomerController@store')->name('customer.store')
+            ->middleware('permission:create_customer');
+        Route::post('customer/update', 'CustomerController@update')->name('customer.update')
+            ->middleware('permission:update_customer');
+        Route::get('customer/roles/{id}', 'CustomerController@getRoles')->name('customer.roles')
+            ->middleware('permission:update_customer');
+        Route::post('customer/destroy', 'CustomerController@destroy')->name('customer.destroy')
+            ->middleware('permission:destroy_customer');
     });
 
     Route::get('middleware/check', 'PermissionController@middlewareCheck')

@@ -232,13 +232,68 @@
 
                 </ul>
             </li>
+
+            @can('view_payments')
+            <li class=" @yield('openModCategory') ">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-credit-card"></i>
+                    <span class="menu-text">
+                        M. Pagos
+                    </span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+                <b class="arrow"></b>
+                <ul class="submenu">
+                    <li class=" @yield('activeListCategory') ">
+                        <a href="{{ route('payment.index') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Listar Pagos
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+
+                </ul>
+            </li>
+            @endcan
+            @can('view_shipping')
+            <li class=" @yield('openModMethodShip') ">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-truck"></i> 
+                    <span class="menu-text">
+                        M. Envios
+                    </span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+
+                    <li class=" @yield('activeListMethodShip') ">
+                        <a href="{{ route('method_ship.index') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Listar Envios
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                    <li class=" @yield('activeRestoreMethodShip') ">
+                        <a href="#">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Restaurar Envios
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
+            @endcan
             @can('create_store')
                 <li class=" @yield('openModProduct') ">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-shopping-basket"></i>
                         <span class="menu-text">
-                        M. Productos
-                    </span>
+                            M. Productos
+                        </span>
 
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
@@ -252,18 +307,18 @@
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Listar Productos
                             </a>
-
                             <b class="arrow"></b>
-
                         </li>
-
                         <li class=" @yield('activeCreateProduct') ">
                             <a href="{{ route('product.create') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Crear Producto
                             </a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
 
-<<<<<<< HEAD
             <!--Mantenedor Direcciones-->
 
             <li class=" @yield('openModAddress') ">
@@ -271,20 +326,29 @@
                     <i class="menu-icon fa fa-map-marker"></i>
                     <span class="menu-text">
                         M. Direcciones
-=======
-                            <b class="arrow"></b>
-                        </li>
+                    </span>
 
-                    </ul>
-                </li>
-            @endcan
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+                <b class="arrow"></b>
+                <ul class="submenu">
+                    <li class=" @yield('activeListAddress') ">
+                        <a href="{{ route('address.index') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Listar clientes
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+
+                </ul>
+            </li>
+
             @can('access_permission')
             <li class=" @yield('openModAccess') ">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-users"></i>
                     <span class="menu-text">
                         M. Accesos
->>>>>>> master
                     </span>
 
                     <b class="arrow fa fa-angle-down"></b>
@@ -293,31 +357,15 @@
                 <b class="arrow"></b>
 
                 <ul class="submenu">
-
-<<<<<<< HEAD
-                    <li class=" @yield('activeListAddress') ">
-                        <a href="{{ route('address.index') }}">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Listar clientes
-=======
                     <li class=" @yield('activeListPermission') ">
                         <a href="{{ route('permission.index') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Permisos
->>>>>>> master
                         </a>
 
                         <b class="arrow"></b>
 
                     </li>
-
-<<<<<<< HEAD
-                </ul>
-            </li>
-
-            <!--Fin Mantenedor Direciones-->
-
-=======
                     <li class=" @yield('activeListRoles') ">
                         <a href="{{ route('role.index') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
@@ -335,11 +383,41 @@
 
                         <b class="arrow"></b>
                     </li>
-
                 </ul>
             </li>
             @endcan
->>>>>>> master
+
+            <!--Fin Mantenedor Direciones-->
+
+            @can('create_store')
+                            <li class=" @yield('openModCustomer') ">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-users"></i>
+                        <span class="menu-text">
+                        M. Clientes
+                    </span>
+
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+
+                        <li class=" @yield('activeListCustomers') ">
+                            <a href="{{ route('customer.index') }}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Clientes
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                    </ul>
+                </li>
+            @endcan
+
+
             <li class=" @yield('activeMod') ">
                 <a href="{{ route('middleware.check') }}">
                     <i class="menu-icon fa fa-file-pdf-o"></i>
@@ -426,6 +504,9 @@
 <script src="{{ asset('toast/jquery.toast.min.js') }}"></script>
 
 <!-- inline scripts related to this page -->
+
+
+
 @yield('scripts')
 
 </body>

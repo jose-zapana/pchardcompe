@@ -16,7 +16,6 @@ class PermissionSeeder extends Seeder
             'name' => 'access_dashboard',
             'description' => 'Acceder al dashboard' // Permiso para acceder al dashboard
         ]);
-
         // Módulo Permisos
         Permission::create([
             'name' => 'access_permission',
@@ -103,12 +102,75 @@ class PermissionSeeder extends Seeder
                                                  // Restaurar la tienda
         ]);
 
+
+         // Módulo metodos de pago
+
+        Permission::create([
+            'name' => 'view_payments',
+            'description' => 'Visualizar lista de metodos de pagos'
+        ]);
+
+        Permission::create([
+            'name' => 'store_payments',
+            'description' => 'Guardar metodos de pagos'
+        ]);
+
+        Permission::create([
+            'name' => 'delete_payments',
+            'description' => 'Eliminar metodos de pagos'
+        ]);
+
+        Permission::create([
+            'name' => 'update_payments',
+            'description' => 'Actualizar metodos de pagos' 
+        ]);
+
+
+         // Módulo Método Envío
+
+        Permission::create([
+            'name' => 'view_shipping',
+            'description' => 'Visualizar lista de envios'
+        ]);
+
+        Permission::create([
+            'name' => 'store_shipping',
+            'description' => 'Guardar metodos de envios'
+        ]);
+
+        Permission::create([
+            'name' => 'update_shipping',
+            'description' => 'Actualizar metodos de envios' 
+        ]);
+
+        Permission::create([
+            'name' => 'delete_shipping',
+            'description' => 'Eliminar metodos de envios'
+        ]);
+
+
         // Módulo Categorías
         // Módulo Productos
         // Módulo Clientes
+        Permission::create([
+            'name' => 'list_customer',
+            'description' => 'Listar clientes' // Permiso para gestionar roles y permisos
+        ]);
+        Permission::create([
+            'name' => 'create_customer',
+            'description' => 'Crear clientes' // Permiso para gestionar roles y permisos
+        ]);
+        Permission::create([
+            'name' => 'update_customer',
+            'description' => 'Modificar clientes' // Permiso para gestionar roles y permisos
+        ]);
+        Permission::create([
+            'name' => 'destroy_customer',
+            'description' => 'Eliminar clientes' // Permiso para gestionar roles y permisos
+        ]);
         // Módulo Pedidos
         // Módulo Método Pago
-        // Módulo Método Envío
+       
 
     }
 }
