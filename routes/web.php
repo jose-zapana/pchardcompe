@@ -66,6 +66,17 @@ Route::middleware('auth')->group(function (){
             ->middleware('permission:destroy_store');
 
 
+
+        // TODO: Rutas módulo Metodos de pago
+        Route::get('payment', 'MethodsPaymentController@index')->name('payment.index')
+        ->middleware('permission:view_payments');
+        Route::post('payment/store', 'MethodsPaymentController@store')->name('payment.store')
+        ->middleware('permission:store_payments');
+        Route::post('payment/update', 'MethodsPaymentController@update')->name('payment.update')
+        ->middleware('permission:update_payments');
+        Route::post('payment/destroy', 'MethodsPaymentController@destroy')->name('payment.destroy')
+        ->middleware('permission:delete_payments');
+
         // TODO: Rutas módulo Envios
         // Index: Muestra el listado de envios
         Route::get('envios', 'MethodShippingController@index')->name('method_ship.index')
@@ -135,6 +146,7 @@ Route::middleware('auth')->group(function (){
             ->middleware('permission:edit_store');
         Route::get('/delete/images/{idImage}', 'ProductController@deleteImages')
             ->middleware('permission:edit_store');
+
 
     });
 
