@@ -2,84 +2,91 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Customer;
 use App\CustomerAddress;
+use Illuminate\Support\Facades\DB;
+//Request
+use App\Http\Requests\StoreCustomerAddressRequest;
+use App\Http\Requests\UpdateCustomerAddressRequest;
+use App\Http\Requests\DeleteCustomerAddressRequest;
+
 use Illuminate\Http\Request;
 
 class CustomerAddressController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        //Traemos customers relacionados a los usuarios
+        $customers = Customer::with('user')->get();
+        //traemos los datos como id y nombre de los usuarios que son clientes
+        $users = User::get(['id', 'name']);
+        //dd($categories);
+        return view('address.index', compact('customers', 'users'));
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        // No se utilizará porque es una ventana modal.
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(StoreCustomerAddressRequest $request)
     {
-        //
+        //Crear una direccion para el cliente
+        $validated = $request->validated();
+
+        $customerAddress = CustomerAddress::create([
+            'customer_id' => $request->get('customer_id'),
+            'address' => $request->get('address'),
+            'country' => $request->get('country'),
+            'city' => $request->get('city'),
+            'province' => $request->get('province')
+        ]);
+
+        return response()->json(['message' => 'Dirección guardada con éxito.'], 200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\CustomerAddress  $customerAddress
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CustomerAddress $customerAddress)
+    public function show($id)
     {
-        //
+        //traemos el id del cliente 
+        $customer = DB::table('customers')
+        ->where('id', $id)
+        ->first();
+        //Mostrara todas las direcciones de un cliente
+        $customerAddresses = CustomerAddress::all()->where('customer_id', $id);
+        return view('address.show', compact('customer','customerAddresses'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\CustomerAddress  $customerAddress
-     * @return \Illuminate\Http\Response
-     */
     public function edit(CustomerAddress $customerAddress)
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\CustomerAddress  $customerAddress
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, CustomerAddress $customerAddress)
+    public function update(UpdateCustomerAddressRequest $request)
     {
-        //
+        //Actualizar la direccion de un cliente
+        $validated = $request->validated();
+
+        $address = CustomerAddress::find($request->get('address_id'));
+        $address->customer_id = $request->get('customer_id');
+        $address->address = $request->get('address');
+        $address->country = $request->get('country');
+        $address->city = $request->get('city');
+        $address->province = $request->get('province');
+        $address->save();
+        return response()->json(['message' => 'Dirección modificada con éxito.'], 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\CustomerAddress  $customerAddress
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(CustomerAddress $customerAddress)
+    public function destroy(DeleteCustomerAddressRequest $request)
     {
-        //
+        //Eliminar una dirección de un cliente
+        $validated = $request->validated();
+
+        $address = CustomerAddress::find($request->get('address_id'));
+
+        $address->delete();
+
+        return response()->json(['message' => 'Dirección eliminada con éxito.'], 200);
     }
 }

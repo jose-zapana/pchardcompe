@@ -1,11 +1,11 @@
 $(document).ready(function () {
     $formCreate = $('#formCreate');
-    $formCreate.on('submit', storeCategory);
+    $formCreate.on('submit', storeAddress);
     $modalCreate = $('#modalCreate');
-    $('#newCategory').on('click', openModalCreate);
+    $("[data-customer]" ).on('click', openModalCreate);
 
     $formEdit = $('#formEdit');
-    $formEdit.on('submit', updateCategory);
+    $formEdit.on('submit', updateAddress);
     $modalEdit = $('#modalEdit');
     $('[data-edit]').on('click', openModalEdit);
 
@@ -26,22 +26,24 @@ var $formDelete;
 var $modalDelete;
 
 function openModalCreate() {
+    var customer_id = $(this).data('customer');
+    console.log(customer_id);
+    $modalCreate.find('[id=customer_id]').val(customer_id);
     $modalCreate.modal('show');
 }
 
-function storeCategory() {
+function storeAddress() {
     event.preventDefault();
     // Obtener la URL
     var createUrl = $formCreate.data('url');
     console.log("ruta",createUrl)
     $.ajax({
         url: createUrl,
-        method: 'POST',
+        method: 'post',
         data: new FormData(this),
         processData:false,
         contentType:false,
         success: function (data) {
-            console.log(data);
             $.toast({
                 text: data.message,
                 showHideTransition: 'slide',
@@ -60,7 +62,9 @@ function storeCategory() {
             }, 4000 )
         },
         error: function (data) {
+            console.log(data)
             for ( var property in data.responseJSON.errors ) {
+
                 $.toast({
                     text:data.responseJSON.errors[property],
                     showHideTransition: 'slide',
@@ -81,27 +85,24 @@ function storeCategory() {
 }
 
 function openModalEdit() {
-    var category_id = $(this).data('edit');
-    console.log(category_id);
-    var shop_id = $(this).data('shop');
-    var name = $(this).data('name');
+    var address_id = $(this).data('edit');
+    var customer_id = $(this).data('customerid');
+    var address = $(this).data('address');
+    var country = $(this).data('country');
+    var city = $(this).data('city');
+    var province = $(this).data('province');
 
-    var image = $(this).data('image');
-    var description = $(this).data('description');
+    $modalEdit.find('[id=address_id]').val(address_id);
+    $modalEdit.find('[id=customer_id]').val(customer_id);
+    $modalEdit.find('[id=addressE]').val(address);
+    $modalEdit.find('[id=countryE]').val(country);
+    $modalEdit.find('[id=cityE]').val(city);
+    $modalEdit.find('[id=provinceE]').val(province);
 
-    $modalEdit.find('[id=category_id]').val(category_id);
-    $modalEdit.find('[id=nameE]').val(name);
-    $modalEdit.find('[id=descriptionE]').val(description);
-    var path = document.location.origin;
-    var completePath = path + '/images/category/' + image;
-    $modalEdit.find('[id=image-preview]').attr('src', completePath);
-
-    $('#shopE option[value='+shop_id+']').attr('selected', true);
-    console.log(path);
     $modalEdit.modal('show');
 }
 
-function updateCategory() {
+function updateAddress() {
     event.preventDefault();
     // Obtener la URL
     var editUrl = $formEdit.data('url');
@@ -131,7 +132,6 @@ function updateCategory() {
             }, 4000 )
         },
         error: function (data) {
-            console.log(data.responseJSON.errors.name);
             for ( var property in data.responseJSON.errors ) {
                 $.toast({
                     text:data.responseJSON.errors[property],
@@ -153,24 +153,20 @@ function updateCategory() {
 }
 
 function openModalDelete() {
-    var category_id = $(this).data('delete');
-    var shop_name = $(this).data('shop');
-    var name = $(this).data('name');
-    var image = $(this).data('image');
-    var description = $(this).data('description');
+    var address_id = $(this).data('delete');
+    var address = $(this).data('address');
+    var country = $(this).data('country');
+    var city = $(this).data('city');
+    var province = $(this).data('province');
 
-    $modalDelete.find('[id=category_id]').val(category_id);
-    $modalDelete.find('[id=nameDelete]').html(name);
-    $modalDelete.find('[id=descriptionDelete]').html(description);
-    $modalDelete.find('[id=shopDelete]').html(shop_name);
-
-    var path = document.location.origin;
-    var completePath = path + '/images/category/' + image;
-    $modalDelete.find('[id=imageDelete]').attr('src', completePath);
+    $modalDelete.find('[id=address_id]').val(address_id);
+    $modalDelete.find('[id=addressDelete]').html(address);
+    $modalDelete.find('[id=countryDelete]').html(country);
+    $modalDelete.find('[id=cityDelete]').html(city);
+    $modalDelete.find('[id=provinceDelete]').html(province);
 
     $modalDelete.modal('show');
 }
-
 function destroyCategory() {
     event.preventDefault();
     // Obtener la URL
