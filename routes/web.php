@@ -140,12 +140,29 @@ Route::middleware('auth')->group(function (){
         // Destroy: Eliminar el producto
         Route::post('product/destroy', 'ProductController@destroy')->name('product.destroy')
             ->middleware('permission:destroy_store');
+      
         Route::get('/obtener/infos/{idProduct}', 'ProductController@getInfo')
             ->middleware('permission:edit_store');
         Route::get('/obtener/images/{idProduct}', 'ProductController@getImages')
             ->middleware('permission:edit_store');
         Route::get('/delete/images/{idImage}', 'ProductController@deleteImages')
             ->middleware('permission:edit_store');
+
+        // TODO: CUSTOMER
+
+        // TODO: Rutas módulo Clientes
+        Route::get('clientes', 'CustomerController@index')->name('customer.index')
+            ->middleware('permission:list_customer');
+        Route::post('customer/store', 'CustomerController@store')->name('customer.store')
+            ->middleware('permission:create_customer');
+        Route::post('customer/update', 'CustomerController@update')->name('customer.update')
+            ->middleware('permission:update_customer');
+        Route::get('customer/roles/{id}', 'CustomerController@getRoles')->name('customer.roles')
+            ->middleware('permission:update_customer');
+        Route::post('customer/destroy', 'CustomerController@destroy')->name('customer.destroy')
+            ->middleware('permission:destroy_customer');
+
+        
 
 
     });
