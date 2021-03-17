@@ -1,3 +1,4 @@
+// Hubieron errores de merge pero todo esta bien al parecer.
 @extends('layouts.appDashboard')
 
 @section('styles')
