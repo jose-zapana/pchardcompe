@@ -65,6 +65,19 @@ Route::middleware('auth')->group(function (){
         Route::post('category/destroy', 'CategoryController@destroy')->name('category.destroy')
             ->middleware('permission:destroy_store');
 
+
+        // TODO: Rutas módulo Envios
+        // Index: Muestra el listado de envios
+        Route::get('envios', 'MethodShippingController@index')->name('method_ship.index')
+            ->middleware('permission:view_shipping');
+        Route::post('method_ship/store', 'MethodShippingController@store')->name('method_ship.store')
+            ->middleware('permission:store_shipping');
+        Route::post('method_ship/update', 'MethodShippingController@update')->name('method_ship.update')
+            ->middleware('permission:update_shipping');
+        Route::post('method_ship/destroy', 'MethodShippingController@destroy')->name('method_ship.destroy')
+           ->middleware('permission:delete_shipping');
+
+
         // TODO: Rutas módulo Accesos
         Route::get('usuarios', 'UserController@index')->name('user.index')
             ->middleware('permission:list_user');
@@ -122,6 +135,7 @@ Route::middleware('auth')->group(function (){
             ->middleware('permission:edit_store');
         Route::get('/delete/images/{idImage}', 'ProductController@deleteImages')
             ->middleware('permission:edit_store');
+
     });
 
     Route::get('middleware/check', 'PermissionController@middlewareCheck')
