@@ -39,7 +39,12 @@ class RoleSeeder extends Seeder
             'view_shipping',
             'store_shipping',
             'update_shipping',
-            'delete_shipping'
+            'delete_shipping',
+
+            'view_payments',
+            'store_payments',
+            'delete_payments',
+            'update_payments',
 
             'list_user',
             'create_user',
