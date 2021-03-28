@@ -390,7 +390,7 @@
             <!--Fin Mantenedor Direciones-->
 
             @can('create_store')
-                            <li class=" @yield('openModCustomer') ">
+                <li class=" @yield('openModCustomer') ">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-users"></i>
                         <span class="menu-text">
@@ -418,11 +418,20 @@
             @endcan
 
 
-            <li class=" @yield('activeMod') ">
-                <a href="{{ route('middleware.check') }}">
+            <li class=" @yield('activeModExport') ">
+                <a href="{{ route('exports') }}">
                     <i class="menu-icon fa fa-file-pdf-o"></i>
                     <span class="menu-text">
-                        Nuevo
+                        PDF y Excel
+                    </span>
+                </a>
+            </li>
+
+            <li class=" @yield('activeMod') ">
+                <a href="{{ route('middleware.check') }}">
+                    <i class="menu-icon fa fa-key"></i>
+                    <span class="menu-text">
+                        Middleware Check
                     </span>
                 </a>
             </li>

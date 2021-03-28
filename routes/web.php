@@ -176,6 +176,18 @@ Route::middleware('auth')->group(function (){
             ->middleware('permission:update_customer');
         Route::post('customer/destroy', 'CustomerController@destroy')->name('customer.destroy')
             ->middleware('permission:destroy_customer');
+
+        // TODO: Rutas módulo Exportaciones
+        Route::get('exportaciones', 'ExportController@index')->name('exports')
+            ->middleware('permission:access_dashboard');
+        Route::get('pdf/basic/stream', 'ExportController@pdfBasicStream')->name('pdf.basic')
+            ->middleware('permission:access_dashboard');
+        Route::get('pdf/basic/download', 'ExportController@pdfBasicDownload')->name('pdf.basic.download')
+            ->middleware('permission:access_dashboard');
+        Route::get('pdf/save/download', 'ExportController@pdfSaveDownload')->name('pdf.save.download')
+            ->middleware('permission:access_dashboard');
+        Route::get('pdf/view/stream', 'ExportController@pdfViewStream')->name('pdf.view.stream')
+            ->middleware('permission:access_dashboard');
     });
 
     Route::get('middleware/check', 'PermissionController@middlewareCheck')
