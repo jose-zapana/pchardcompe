@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ArrayConstructExport;
+use App\Exports\ArraySingleExport;
+use App\Exports\CollectionExport;
+use App\Exports\UsersExport;
+use App\Exports\ViewExport;
+use App\User;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Role;
 
 class ExportController extends Controller
@@ -44,6 +51,38 @@ class ExportController extends Controller
         $pdf = PDF::loadHTML($vista);
         $name = 'roles_permisos.pdf';
         return $pdf->stream($name);
+    }
+
+    public function excelBasic()
+    {
+        return Excel::download(new UsersExport(), 'users.xlsx');
+    }
+
+    public function excelCollection()
+    {
+        return Excel::download(new CollectionExport(), 'collection.xlsx');
+    }
+
+    public function excelArray()
+    {
+        return Excel::download(new ArraySingleExport(), 'array.xlsx');
+    }
+
+    public function excelConstruct()
+    {
+        $array = [
+            ['ID usuario', 'Nombre usuario', 'DNI usuario']
+        ];
+
+        $users = User::get(['id', 'name', 'dni'])->toArray();
+        array_push($array, $users);
+
+        return Excel::download(new ArrayConstructExport($array), 'constructor.xlsx');
+    }
+
+    public function excelView()
+    {
+        return Excel::download(new ViewExport(), 'view.xlsx');
     }
 
 

@@ -89,6 +89,82 @@
                 </div>
             </div><!-- /.widget-main -->
         </div><!-- /.widget-body -->
+
+    </div>
+    <div class="widget-box widget-color-green">
+        <div class="widget-header widget-color-green widget-header-flat widget-header-small">
+            <h5 class="widget-title">
+                <i class="ace-icon fa fa-file-excel-o"></i>
+                Exportaciones en EXCEL
+            </h5>
+        </div>
+
+        <div class="widget-body">
+            <div class="widget-main">
+                <div class="infobox infobox-green infobox-small infobox-dark">
+                    <div class="infobox-icon">
+                        <i class="ace-icon fa fa-download"></i>
+                    </div>
+
+                    <div class="infobox-data">
+                        <div class="infobox-content">QuickStart</div>
+                        <div class="infobox-content">
+                            <a class="btn btn-xs btn-white" href="{{ route('excel.basic') }}">Descargar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="infobox infobox-blue infobox-small infobox-dark">
+                    <div class="infobox-icon">
+                        <i class="ace-icon fa fa-download"></i>
+                    </div>
+
+                    <div class="infobox-data">
+                        <div class="infobox-content">Collection</div>
+                        <div class="infobox-content">
+                            <a class="btn btn-xs btn-white" href="{{ route('excel.collection') }}">Descargar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="infobox infobox-brown infobox-small infobox-dark">
+                    <div class="infobox-icon">
+                        <i class="ace-icon fa fa-download"></i>
+                    </div>
+
+                    <div class="infobox-data">
+                        <div class="infobox-content">Array</div>
+                        <div class="infobox-content">
+                            <a class="btn btn-xs btn-white" href="{{ route('excel.array') }}">Descargar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="infobox infobox-orange infobox-small infobox-dark">
+                    <div class="infobox-icon">
+                        <i class="ace-icon fa fa-download"></i>
+                    </div>
+
+                    <div class="infobox-data">
+                        <div class="infobox-content">Constructor</div>
+                        <div class="infobox-content">
+                            <a class="btn btn-xs btn-white" href="{{ route('excel.construct') }}">Descargar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="infobox infobox-orange infobox-small infobox-dark">
+                    <div class="infobox-icon">
+                        <i class="ace-icon fa fa-download"></i>
+                    </div>
+
+                    <div class="infobox-data">
+                        <div class="infobox-content">View</div>
+                        <div class="infobox-content">
+                            <a class="btn btn-xs btn-white" href="{{ route('excel.view') }}">Descargar</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.widget-main -->
+        </div><!-- /.widget-body -->
+
     </div>
 @endsection
 

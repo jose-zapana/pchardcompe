@@ -188,6 +188,17 @@ Route::middleware('auth')->group(function (){
             ->middleware('permission:access_dashboard');
         Route::get('pdf/view/stream', 'ExportController@pdfViewStream')->name('pdf.view.stream')
             ->middleware('permission:access_dashboard');
+
+        Route::get('excel/basic', 'ExportController@excelBasic')->name('excel.basic')
+            ->middleware('permission:access_dashboard');
+        Route::get('excel/collection', 'ExportController@excelCollection')->name('excel.collection')
+            ->middleware('permission:access_dashboard');
+        Route::get('excel/array', 'ExportController@excelArray')->name('excel.array')
+            ->middleware('permission:access_dashboard');
+        Route::get('excel/construct', 'ExportController@excelConstruct')->name('excel.construct')
+            ->middleware('permission:access_dashboard');
+        Route::get('excel/view', 'ExportController@excelView')->name('excel.view')
+            ->middleware('permission:access_dashboard');
     });
 
     Route::get('middleware/check', 'PermissionController@middlewareCheck')
