@@ -207,6 +207,10 @@ Route::middleware('auth')->group(function (){
 
 });
 
+Route::get('auth/{provider}', 'SocialAuthController@redirectToProvider')
+    ->name('social.auth');
+Route::get('auth/{provider}/callback', 'SocialAuthController@handleProviderCallback');
+
 // Customer
 // Customer_address
 // method_payment

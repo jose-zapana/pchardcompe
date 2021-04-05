@@ -52,6 +52,8 @@
 
             <a href="#facebook" class="btn btn-facebook"> <i class="ion-social-facebook"></i> Login with Facebook </a>
             <hr class="offset-sm">
+            <a href="{{ route('social.auth', 'github') }}" class="btn btn-success btn-block"> <i class="ion-social-github"></i> Login with Github </a>
+            <hr class="offset-sm">
 
             <p>
                 No tienes una cuenta? Crear una ahora! <a href="{{ route('register') }}"> Crea cuenta > </a>
