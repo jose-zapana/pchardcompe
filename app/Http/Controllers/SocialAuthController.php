@@ -18,7 +18,7 @@ class SocialAuthController extends Controller
     public function handleProviderCallback( $provider )
     {
         $social_user = Socialite::driver($provider)->user();
-        if ( $user = User::where('email', $social_user->email)->get() )
+        if ( $user = User::where('email', $social_user->email)->first() )
         {
             return $this->loginAndRedirect($user);
         } else {
