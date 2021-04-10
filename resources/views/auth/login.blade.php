@@ -50,9 +50,16 @@
             </p>
             <hr class="offset-xs">
 
-            <a href="#facebook" class="btn btn-facebook"> <i class="ion-social-facebook"></i> Login with Facebook </a>
+            <a href="{{ route('social.auth', 'facebook') }}" class="btn btn-facebook"> <i class="ion-social-facebook"></i> Login with Facebook </a>
             <hr class="offset-sm">
+
             <a href="{{ route('social.auth', 'github') }}" class="btn btn-success btn-block"> <i class="ion-social-github"></i> Login with Github </a>
+            <hr class="offset-sm">
+
+            <a href="{{ route('social.auth', 'twitter') }}" class="btn btn-info btn-block"> <i class="ion-social-twitter"></i> Login with Twitter </a>
+            <hr class="offset-sm">
+
+            <a href="{{ route('social.auth', 'google') }}" class="btn btn-danger btn-block"> <i class="ion-social-google"></i> Login with Google </a>
             <hr class="offset-sm">
 
             <p>
