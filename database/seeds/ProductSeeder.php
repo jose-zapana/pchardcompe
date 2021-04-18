@@ -29,14 +29,6 @@ class ProductSeeder extends Seeder
         ]);
 
         Product::create([
-            'name' => 'Hp 15-Dy1071 Intel I7 10Th 24GB RAM (8GB DDR4+16GB OPTANE) 256Gb Disk 15 Hd Windows 10 Open Box',
-            'description' => 'Open-box son modelos de vitrina o productos devueltos profesionalmente verificados garantizando su funcionalidad se ven y se sienten increíbles algunos pueden mostrar imperfecciones cosméticas pero su funcionalidad está a la par de los nuevos',
-            'stock' => 10,
-            'unit_price' => 3029.00,
-            'shop_id' => 1
-        ]);
-
-        Product::create([
             'name' => 'SILLA GAMER XION MODELO RAVEN RGB 2021 135 GRADOS',
             'description' => 'Construcción robusta, cuerina de primera calidad y materiales resistentes garantizan máxima estabilidad y durabilidad',
             'stock' => 10,

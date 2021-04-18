@@ -211,6 +211,12 @@ Route::get('auth/{provider}', 'SocialAuthController@redirectToProvider')
     ->name('social.auth');
 Route::get('auth/{provider}/callback', 'SocialAuthController@handleProviderCallback');
 
+Route::get('/catalogo/', 'ProductController@catalog')
+    ->name('landing.catalog');
+Route::get('/landing/get/products/', 'ProductController@getProducts');
+
+Route::get('/product/detail/{idProduct}', 'ProductController@getProductById')
+    ->name('landing.detail');
 // Customer
 // Customer_address
 // method_payment

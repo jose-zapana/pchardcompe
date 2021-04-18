@@ -258,4 +258,24 @@ class ProductController extends Controller
         return response()->json(['message' => 'No se encuentra la imagen.', 'status'=>'error'], 200);
 
     }
+
+    public function catalog()
+    {
+        $categories = Category::where('shop_id', 1)->get();
+        return view('landing.catalog', compact('categories'));
+    }
+
+    public function getProducts()
+    {
+        $products = Product::where('shop_id', 1)->with('categories')->with('images')->get();
+
+        return $products;
+    }
+
+    public function getProductById( $idProduct )
+    {
+        $product = Product::where('id', $idProduct)->where('shop_id', 1)->with(['categories', 'images', 'infos'])->first();
+
+        return view('landing.detail', compact('product'));
+    }
 }

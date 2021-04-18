@@ -44,8 +44,8 @@
 
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Catálogo</a></li>
+                <li><a href="{{ url('/') }}">Inicio</a></li>
+                <li><a href="{{ route('landing.catalog') }}">Catálogo</a></li>
                 <li><a href="#">Categorías</a></li>
                 @auth()
                     <li><a href="#">Pedidos</a></li>

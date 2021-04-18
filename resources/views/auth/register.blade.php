@@ -1,4 +1,4 @@
-@extends('layouts.appLanding')
+@extends('layouts.appLanding2')
 
 @section('activeRegister')
     active
