@@ -56,7 +56,7 @@
                     <p class="price">S/. {{ $product->unit_price }}</p>
                     <br><br>
 
-                    <button class="btn btn-primary btn-rounded"> <i class="ion-bag"></i> Add to cart</button>
+                    <button data-url="{{route('add.cart', $product->id)}}" data-product="{{$product->id}}" class="btn btn-primary btn-rounded"> <i class="ion-bag"></i> Add to cart</button>
                 </div>
             </div>
             <br><br><br>

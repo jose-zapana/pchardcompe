@@ -8,10 +8,23 @@ $(document).ready(function () {
         })
     });
 
-    //$(document).on('click', '[data-image]', );
+    $(document).on('click', '[data-product]', addToCart);
 });
 
 var $products;
+
+function addToCart() {
+    var url = $(this).data('url');
+    $.get(url, function (resp) {
+        console.log(resp);
+        if ( resp.success )
+        {
+            // Redirigir a la ruta
+            //$(location).attr('href', resp.url);
+        }
+    });
+
+}
 
 function renderTemplateProducts(idProduct, nameProduct, priceProduct, imageProduct, categoryProduct) {
     var clone = activateTemplate('#template-product');
@@ -20,6 +33,8 @@ function renderTemplateProducts(idProduct, nameProduct, priceProduct, imageProdu
     var url_image = url + '/images/product/'+imageProduct;
     clone.querySelector("[data-heart]").setAttribute('data-heart', idProduct) ;
     clone.querySelector("[data-detail]").setAttribute('href', url+'/product/detail/'+idProduct);
+    clone.querySelector("[data-product]").setAttribute('data-product', idProduct);
+    clone.querySelector("[data-url]").setAttribute('data-url', url+'/add/cart/'+idProduct);
     clone.querySelector("[data-image]").setAttribute('src', url_image);
     clone.querySelector("[data-name]").innerHTML = nameProduct;
     clone.querySelector("[data-price]").innerHTML = priceProduct;

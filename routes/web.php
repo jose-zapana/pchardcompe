@@ -217,6 +217,12 @@ Route::get('/landing/get/products/', 'ProductController@getProducts');
 
 Route::get('/product/detail/{idProduct}', 'ProductController@getProductById')
     ->name('landing.detail');
+
+Route::get('/add/cart/{idProduct}', 'CartController@addToCart')
+    ->name('add.cart');
+
+Route::get('/shopping/cart/', 'CartController@getShoppingCart')
+    ->name('shopping.cart');
 // Customer
 // Customer_address
 // method_payment

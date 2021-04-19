@@ -214,7 +214,7 @@
                                 <label data-category>Laptops</label>
 
                                 <a href="#" data-detail class="btn btn-link"> Details</a>
-                                <button class="btn btn-primary btn-rounded btn-sm"> <i class="ion-bag"></i> Add to cart</button>
+                                <button data-product="" data-url="" class="btn btn-primary btn-rounded btn-sm"> <i class="ion-bag"></i> Add to cart</button>
                             </div>
                         </div>
                     </template>
