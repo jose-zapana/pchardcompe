@@ -19,7 +19,7 @@
     <link href="{{asset('landing/assets/css/custom.css')}}" rel="stylesheet">
     <link href="{{asset('landing/assets/ionicons-2.0.1/css/ionicons.css')}}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Catamaran:400,100,300' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="{{ asset('toast/jquery.toast.min.css') }}">
 @yield('styles')
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -276,6 +276,7 @@
                 @auth()
                     <li class="@yield('activeOrders')"><a href="#">Pedidos</a></li>
                     <li class="@yield('activeAddress')"><a href="#">Direcciones</a></li>
+                    <li class="@yield('activeCart')"><a href="{{ route('shopping.cart') }}"> <i class="ion-android-cart"></i> Carrito</a></li>
                 @endauth
                 <li class="@yield('activeContact')"><a href="#">Contacto</a></li>
             </ul>
@@ -524,7 +525,7 @@
 
 <script type="text/javascript" src="{{asset('landing/assets/js/jquery-ui-1.11.4.js')}}"></script>
 <script type="text/javascript" src="{{asset('landing/assets/js/jquery.ui.touch-punch.js')}}"></script>
-
+<script src="{{ asset('toast/jquery.toast.min.js') }}"></script>
 @yield('scripts')
 
 </body>

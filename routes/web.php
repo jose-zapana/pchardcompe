@@ -205,6 +205,21 @@ Route::middleware('auth')->group(function (){
         ->name('middleware.check')
         ->middleware('middlewareCheck:20,view');
 
+    Route::get('/add/cart/{idProduct}', 'CartController@addToCart')
+        ->name('add.cart');
+
+    Route::get('/shopping/cart/', 'CartController@getShoppingCart')
+        ->name('shopping.cart');
+
+    Route::get('/update/cart/{cart_id}/{product_id}/{action}', 'CartController@updateCart')
+        ->name('update.cart');
+
+    Route::get('/remove/item/{cart_id}/{product_id}', 'CartController@removeItem')
+        ->name('remove.item');
+
+    Route::get('/checkout/order/', 'CartController@checkoutOrder')
+        ->name('checkout.order');
+
 });
 
 Route::get('auth/{provider}', 'SocialAuthController@redirectToProvider')
@@ -218,11 +233,7 @@ Route::get('/landing/get/products/', 'ProductController@getProducts');
 Route::get('/product/detail/{idProduct}', 'ProductController@getProductById')
     ->name('landing.detail');
 
-Route::get('/add/cart/{idProduct}', 'CartController@addToCart')
-    ->name('add.cart');
 
-Route::get('/shopping/cart/', 'CartController@getShoppingCart')
-    ->name('shopping.cart');
 // Customer
 // Customer_address
 // method_payment

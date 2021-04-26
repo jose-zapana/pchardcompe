@@ -21,7 +21,7 @@ class Shop extends Model
 
     public function payments()
     {
-        return $this->hasMany('App\MethodPayment');
+        return $this->hasMany('App\MethodsPayment');
     }
 
     public function shippings()

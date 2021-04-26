@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\CartProduct;
 use App\Customer;
+use App\MethodShipping;
+use App\MethodsPayment;
+use App\MethodsPayment_Shops;
 use App\Product;
+use App\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,4 +64,121 @@ class CartController extends Controller
         return response()->json(['success' => true, 'url' => route('shopping.cart')],200);
 
     }
+
+    public function getShoppingCart()
+    {
+        $customer = Customer::where('user_id', Auth::user()->id)->first();
+        $cart = Cart::where('customer_id', $customer->id)
+            ->where('state', 'on')
+            ->with('products')
+            ->first();
+        $methodPayments = MethodsPayment::all();
+
+        return view('landing.cart', compact('customer', 'cart', 'methodPayments'));
+    }
+
+    public function updateCart( $cart_id, $product_id, $action )
+    {
+        $customer = Customer::where('user_id', Auth::user()->id)->first();
+        $cart = Cart::where('customer_id', $customer->id)
+            ->where('state', 'on')
+            ->where('id', $cart_id)
+            ->with('products')
+            ->first();
+
+        if ( !isset($cart) )
+        {
+            return response()->json(['success' => false, 'message' => "Lo sentimos, ocurrió un error."],200);
+        }
+
+        if ($action === "plus")
+        {
+            $cart_product = CartProduct::where('cart_id',$cart->id )
+                ->where('product_id', $product_id)->first();
+            $cart_product->quantity +=1;
+            $cart_product->save();
+        }
+
+        if ($action === "minus")
+        {
+            $cart_product = CartProduct::where('cart_id',$cart->id )
+                ->where('product_id', $product_id)->first();
+            $cart_product->quantity -=1;
+            $cart_product->save();
+        }
+
+        $total = 0;
+        $cart_products = CartProduct::where('cart_id',$cart->id )->get();
+        foreach ( $cart_products as $cart_product )
+        {
+            $total = $total + ($cart_product->quantity*$cart_product->unit_price);
+        }
+        $cart->total = $total;
+        $cart->save();
+
+        /*foreach ( $cart->products as $product )
+        {
+            var_dump($product->pivot->quantity);
+            //$total = $total + ($product->pivot->quantity*$product->pivot->unit_price);
+        }*/
+        //$cart->total = $total;
+        //$cart->save();
+
+        return response()->json(['success' => true, 'cart' => $cart],200);
+
+    }
+
+    public function removeItem( $cart_id, $product_id )
+    {
+        $customer = Customer::where('user_id', Auth::user()->id)->first();
+        $cart = Cart::where('customer_id', $customer->id)
+            ->where('state', 'on')
+            ->where('id', $cart_id)
+            ->with('products')
+            ->first();
+
+        if ( !isset($cart) )
+        {
+            return response()->json(['success' => false, 'message' => "Lo sentimos, ocurrió un error."],200);
+        }
+
+        $item = CartProduct::where('cart_id', $cart->id)
+            ->where('product_id', $product_id)->first();
+        $item->delete();
+
+        // Volvemos a actualizar el cart total
+        $total = 0;
+        $cart_products = CartProduct::where('cart_id',$cart->id )->get();
+        foreach ( $cart_products as $cart_product )
+        {
+            $total = $total + ($cart_product->quantity*$cart_product->unit_price);
+        }
+        $cart->total = $total;
+        $cart->save();
+
+        $cart2 = Cart::where('customer_id', $customer->id)
+            ->where('state', 'on')
+            ->where('id', $cart_id)
+            ->with('products')
+            ->first();
+
+        return response()->json(['success' => true, 'cart' => $cart2],200);
+    }
+
+    public function checkoutOrder()
+    {
+        $customer = Customer::where('user_id', Auth::user()->id)->with('addresses')->first();
+        $cart = Cart::where('customer_id', $customer->id)
+            ->where('state', 'on')
+            ->with('products')
+            ->first();
+        $method_shippings = MethodShipping::where('shop_id', 1)->get();
+        //$methodPayments = MethodsPayment_Shops::where('shop_id', 1)->get('');
+        $method_payments = MethodsPayment_Shops::leftJoin('method_payments','method_payments.id','=','shops_method_payments.method_payments_id')
+            ->where('shops_method_payments.shop_id', 1)
+            ->select('method_payments.name', 'method_payments.image')->get();
+        //dd($method_shippings);
+        return view('landing.checkout', compact('customer', 'cart', 'method_shippings', 'method_payments'));
+    }
+
 }
