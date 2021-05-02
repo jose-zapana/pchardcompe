@@ -220,6 +220,9 @@ Route::middleware('auth')->group(function (){
     Route::get('/checkout/order/', 'CartController@checkoutOrder')
         ->name('checkout.order');
 
+    Route::post('/confirm/order/', 'CartController@confirmOrder')
+        ->name('confirm.order');
+
 });
 
 Route::get('auth/{provider}', 'SocialAuthController@redirectToProvider')

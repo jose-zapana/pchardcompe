@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\CartProduct;
 use App\Customer;
+use App\CustomerAddress;
 use App\MethodShipping;
 use App\MethodsPayment;
 use App\MethodsPayment_Shops;
 use App\Product;
+use App\Sale;
+use App\SaleProduct;
 use App\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -179,6 +183,53 @@ class CartController extends Controller
             ->select('method_payments.name', 'method_payments.image')->get();
         //dd($method_shippings);
         return view('landing.checkout', compact('customer', 'cart', 'method_shippings', 'method_payments'));
+    }
+
+    public function confirmOrder( Request $request )
+    {
+        DB::beginTransaction();
+        try {
+            $payment = MethodsPayment::where('name', $request->get('payment'))->first();
+            $customer = Customer::where('user_id', Auth::user()->id)->with('addresses')->first();
+            $cart = Cart::where('customer_id', $customer->id)
+                ->where('state', 'on')
+                ->with('products')
+                ->first();
+
+            // Generamos la venta
+            $sale = Sale::create([
+                'cart_id' => $cart->id,
+                'state' => 'checked',
+                'total' => $cart->total,
+                'method_payment_id' => $payment->id,
+                'method_shipping_id' => $request->get('shipping'),
+                'customer_address_id' => $request->get('address')
+            ]);
+
+            $cart_products = CartProduct::where('cart_id',$cart->id )->get();
+            foreach ( $cart_products as $cart_product )
+            {
+                SaleProduct::create([
+                    'sale_id' => $sale->id,
+                    'product_id' => $cart_product->product_id,
+                    'quantity' => $cart_product->quantity,
+                    'unit_price' => $cart_product->unit_price
+                ]);
+            }
+
+            $cart->state = 'off';
+            $cart->save();
+
+            // TODO: Enviar notificación al administrador
+
+            DB::commit();
+        } catch ( \Throwable $e ) {
+            DB::rollBack();
+            return response()->json(['message' => $e], 422);
+        }
+
+        return response()->json(['message' => 'Pedido confirmado con éxito.'], 200);
+
     }
 
 }

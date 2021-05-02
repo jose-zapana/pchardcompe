@@ -30,7 +30,7 @@
         </div>
     </div>
     <hr class="offset-md">
-
+    @if( isset($cart) )
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -117,6 +117,9 @@
             </div>
         </div>
     </div>
+    @else
+        No se ha encontrado un carrito de compras
+    @endif
     <hr class="offset-lg">
     <hr class="offset-lg">
 @endsection
