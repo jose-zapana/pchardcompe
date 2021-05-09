@@ -17,18 +17,17 @@ class Sale extends Model
 
     public function payment()
     {
-        return $this->belongsTo('App\MethodsPayment');
+        return $this->belongsTo('App\MethodsPayment', 'method_payment_id');
     }
 
     public function shipping()
     {
-        return $this->belongsTo('App\MethodShipping');
+        return $this->belongsTo('App\MethodShipping', 'method_shipping_id');
     }
 
     public function address()
     {
-        return $this->belongsTo('App\CustomerAddress');
+        return $this->belongsTo('App\CustomerAddress', 'customer_address_id');
     }
-
 
 }

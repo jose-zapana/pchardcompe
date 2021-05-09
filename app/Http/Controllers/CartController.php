@@ -6,6 +6,7 @@ use App\Cart;
 use App\CartProduct;
 use App\Customer;
 use App\CustomerAddress;
+use App\Mail\CheckoutMail;
 use App\MethodShipping;
 use App\MethodsPayment;
 use App\MethodsPayment_Shops;
@@ -16,6 +17,7 @@ use App\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
 {
@@ -222,10 +224,13 @@ class CartController extends Controller
 
             // TODO: Enviar notificación al administrador
 
+            // TODO: Enviar un correo electronico al administrador
+            Mail::to('joryes1894@gmail.com')->send( new CheckoutMail($sale, $cart, $customer) );
+
             DB::commit();
         } catch ( \Throwable $e ) {
             DB::rollBack();
-            return response()->json(['message' => $e], 422);
+            return response()->json(['message' => $e->getMessage()], 422);
         }
 
         return response()->json(['message' => 'Pedido confirmado con éxito.'], 200);
