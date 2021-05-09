@@ -51,7 +51,7 @@
                     <li><a href="#">Pedidos</a></li>
                     <li><a href="#">Direcciones</a></li>
                 @endauth
-                <li><a href="#">Contacto</a></li>
+                <li><a href="{{ route('show.contact') }}">Contacto</a></li>
             </ul>
             @guest
                 <ul class="nav navbar-nav navbar-right">

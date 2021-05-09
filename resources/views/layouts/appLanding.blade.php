@@ -278,7 +278,7 @@
                     <li class="@yield('activeAddress')"><a href="#">Direcciones</a></li>
                     <li class="@yield('activeCart')"><a href="{{ route('shopping.cart') }}"> <i class="ion-android-cart"></i> Carrito</a></li>
                 @endauth
-                <li class="@yield('activeContact')"><a href="#">Contacto</a></li>
+                <li class="@yield('activeContact')"><a href="{{ route('show.contact') }}">Contacto</a></li>
             </ul>
             @guest
                 <ul class="nav navbar-nav navbar-right">
