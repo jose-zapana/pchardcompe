@@ -6,6 +6,7 @@ use App\Cart;
 use App\CartProduct;
 use App\Customer;
 use App\CustomerAddress;
+use App\Events\OrderConfirmed;
 use App\Mail\CheckoutMail;
 use App\MethodShipping;
 use App\MethodsPayment;
@@ -223,9 +224,9 @@ class CartController extends Controller
             $cart->save();
 
             // TODO: Enviar notificación al administrador
-
+            event(new OrderConfirmed($sale, $cart, $customer));
             // TODO: Enviar un correo electronico al administrador
-            Mail::to('joryes1894@gmail.com')->send( new CheckoutMail($sale, $cart, $customer) );
+            //Mail::to('joryes1894@gmail.com')->send( new CheckoutMail($sale, $cart, $customer) );
 
             DB::commit();
         } catch ( \Throwable $e ) {
