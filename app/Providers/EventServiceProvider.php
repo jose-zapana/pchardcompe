@@ -21,6 +21,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\OrderConfirmed' => [
             'App\Listeners\SendMailOrderConfirmed',
         ],
+        'App\Events\OrderPlaced' => [
+            'App\Listeners\OrderStatusPlaced',
+        ],
     ];
 
     /**

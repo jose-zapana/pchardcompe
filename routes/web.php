@@ -223,6 +223,16 @@ Route::middleware('auth')->group(function (){
     Route::post('/confirm/order/', 'CartController@confirmOrder')
         ->name('confirm.order');
 
+    // TODO: Rutas de Evento Broadcasting Test
+    Route::get('/sendEvent', function (){
+        $mensaje = 'Por fin hicimos una transmisión';
+        //event(new \App\Events\OrderPlaced($mensaje));
+    });
+
+    Route::get('/listenEvent', function (){
+        return view('pusher.listen');
+    });
+
 });
 
 Route::get('auth/{provider}', 'SocialAuthController@redirectToProvider')
