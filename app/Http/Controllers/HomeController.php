@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
+use App\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,5 +30,17 @@ class HomeController extends Controller
 
     public function dashboard() {
         return view('dashboard.home');
+    }
+
+    public function eager()
+    {
+        $carts = Cart::with('customer.user')->get();
+        return view('pusher.eager', compact('carts'));
+    }
+
+    public function lazy()
+    {
+        $carts = Cart::all();
+        return view('pusher.eager', compact('carts'));
     }
 }

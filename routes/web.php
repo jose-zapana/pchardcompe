@@ -233,6 +233,9 @@ Route::middleware('auth')->group(function (){
         return view('pusher.listen');
     });
 
+    // TODO: Rutas de Eager and Lazy loading
+    Route::get('/eager', 'HomeController@eager');
+    Route::get('/lazy', 'HomeController@lazy');
 });
 
 Route::get('auth/{provider}', 'SocialAuthController@redirectToProvider')
