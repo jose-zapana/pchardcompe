@@ -526,6 +526,7 @@
 <script type="text/javascript" src="{{asset('landing/assets/js/jquery-ui-1.11.4.js')}}"></script>
 <script type="text/javascript" src="{{asset('landing/assets/js/jquery.ui.touch-punch.js')}}"></script>
 <script src="{{ asset('toast/jquery.toast.min.js') }}"></script>
+
 @yield('scripts')
 
 </body>

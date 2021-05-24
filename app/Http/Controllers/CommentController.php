@@ -4,82 +4,49 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index( $id_product )
     {
-        //
+        $comments = Comment::where('product_id', $id_product)
+            ->with(['user', 'product'])->get();
+
+        return $comments;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $comment = Comment::create([
+            'user_id' => Auth::user()->id,
+            'comment' => $request->get('comment'),
+            'product_id' => $request->get('product_id')
+        ]);
+
+        $comment1 = Comment::where('id', $comment->id)
+            ->with('user')->first();
+
+        return $comment1;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Comment $comment)
+    public function update($id, Request $request)
     {
-        //
+        $comment = Comment::find($id);
+        $comment->comment = $request->get('comment');
+        $comment->save();
+
+        $comment1 = Comment::where('id', $id)
+            ->with('user')->first();
+        return $comment1;
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Comment $comment)
+    public function destroy($id)
     {
-        //
-    }
+        $comment = Comment::find($id);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Comment $comment)
-    {
-        //
-    }
+        $comment->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Comment $comment)
-    {
-        //
     }
 }

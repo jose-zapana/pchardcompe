@@ -236,6 +236,12 @@ Route::middleware('auth')->group(function (){
     // TODO: Rutas de Eager and Lazy loading
     Route::get('/eager', 'HomeController@eager');
     Route::get('/lazy', 'HomeController@lazy');
+
+    // TODO: Rutas de vue
+    Route::get('/comments/{id}', 'CommentController@index');
+    Route::post('/comment/create', 'CommentController@store');
+    Route::put('/comment/update/{id}', 'CommentController@update');
+    Route::delete('/comment/delete/{id}', 'CommentController@destroy');
 });
 
 Route::get('auth/{provider}', 'SocialAuthController@redirectToProvider')

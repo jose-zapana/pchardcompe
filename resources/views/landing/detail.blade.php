@@ -83,38 +83,9 @@
                 </div>
 
                 <div class="col-sm-5">
-                    <div class="comments">
-                        <h2 class="h3">What do you think? (#3)</h2>
-                        <br>
+                    <my-comments-component v-bind:id_product="{{ json_encode($product->id) }}" >
 
-
-                        <div class="wrapper">
-                            <div class="content">
-                                <h3>Anne Hathaway</h3>
-                                <label>2 years ago</label>
-                                <p>
-                                    Apple Music brings iTunes music streaming to the UK. But is it worth paying for? In our Apple Music review, we examine the service's features, UK pricing, audio quality and music library
-                                </p>
-
-
-                                <h3>Chris Hemsworth</h3>
-                                <label>Today</label>
-                                <p>
-                                    Samsung's Galaxy S7 smartphone is getting serious hype. Here's what it does better than Apple's iPhone 6s.
-                                </p>
-
-
-                                <h3>Anne Hathaway</h3>
-                                <label>2 years ago</label>
-                                <p>
-                                    Apple Music brings iTunes music streaming to the UK. But is it worth paying for? In our Apple Music review, we examine the service's features, UK pricing, audio quality and music library
-                                </p>
-                            </div>
-                        </div>
-                        <br>
-
-                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#Modal-Comment"> <i class="ion-chatbox-working"></i> Add comment </button>
-                    </div>
+                    </my-comments-component>
                     <br><br>
 
                     <div class="talk">
@@ -131,5 +102,6 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/landing/detail.js') }}"></script>
 @endsection
