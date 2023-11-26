@@ -12,7 +12,8 @@
     <meta name="description" content="Pchard SAC es una empresa peruana que brinda servicios de soporte técnico y venta de ordenadores y laptops">
     <meta name="keywords" content="pchard, pc hard, pchard sac, soporte tecnico, venta de computadoras, soporte tecnico a domicilio, reparacion, accesorios de computo, suministros, impresoras">
     <meta name="author" content="José Zapana">
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('landing/assets/favicon.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('landing/assets/favicon.ico')}}">
+
 
     <!-- Bootstrap -->
     <link href="{{asset('landing/assets/css/bootstrap.css')}}" rel="stylesheet">
@@ -181,7 +182,7 @@
             </a>
             <br><br>
 
-            <a href="#">Blog headlines</a>
+            <a href="#">Titulares de blogs</a>
         </div>
         <div class="col-sm-3 align-center">
             <a href="#video" data-gallery="#video" data-source="vimeo" data-id="110691368" data-id="110691368" data-title="Apple iPad Air" data-description="So capable, you won’t want to put it down. So thin and light, you won’t have to.">
@@ -189,7 +190,7 @@
             </a>
             <br><br>
 
-            <a href="#video" data-gallery="#video" data-source="vimeo" data-id="110691368" data-title="Apple iPad Air" data-description="So capable, you won’t want to put it down. So thin and light, you won’t have to.">New apple diveces</a>
+            <a href="#video" data-gallery="#video" data-source="vimeo" data-id="110691368" data-title="Apple iPad Air" data-description="So capable, you won’t want to put it down. So thin and light, you won’t have to.">Nuevo apple diveces</a>
         </div>
         <div class="col-sm-3 align-center">
             <a href="#video" data-gallery="#video" data-source="youtube" data-id="6g-ZIm0wge4" data-title="Best New Dell Laptops" data-description="Best of dell's laptops that you can consider buying in 2016. 4 Laptops are featured in the video and all of them has equal importance and there is no order that #1 is better than #2">
@@ -205,7 +206,7 @@
             </a>
             <br><br>
 
-            <a href="#">Products gallery</a>
+            <a href="#">Galería de productos</a>
         </div>
     </div>
 </div>
@@ -220,25 +221,25 @@
                 <div class="col-xs-6 col-sm-3">
                     <div class="item">
                         <i class="ion-ios-telephone-outline"></i>
-                        <h1>24/7 free <br> <span>support</span></h1>
+                        <h1>24/7 Atención <br> <span>al Cliente</span></h1>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-3">
                     <div class="item">
                         <i class="ion-ios-star-outline"></i>
-                        <h1>Low price <br> <span>guarantee</span></h1>
+                        <h1>Garantías <br> <span>Representante | Fabricante</span></h1>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-3">
                     <div class="item">
                         <i class="ion-ios-gear-outline"></i>
-                        <h1> Manufacturer’s <br> <span>warranty</span></h1>
+                        <h1> Servicio <br> <span>Soporte Técnico</span></h1>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-3">
                     <div class="item">
                         <i class="ion-ios-loop"></i>
-                        <h1> Full refund <br> <span>guarantee</span> </h1>
+                        <h1> Soporte <br> <span>Remoto</span> </h1>
                     </div>
                 </div>
 
@@ -251,15 +252,15 @@
         <div class="container align-center">
             <hr class="offset-md">
 
-            <h1 class="h3 upp">Join our newsletter</h1>
-            <p>Get more information and receive special discounts for our products.</p>
+            <h1 class="h3 upp">Suscríbase a nuestro boletín</h1>
+            <p>Obtenga más información y reciba descuentos especiales en nuestros productos.</p>
             <hr class="offset-sm">
 
             <form action="#" method="post">
                 <div class="input-group">
                     <input type="email" name="email" value="" placeholder="E-mail" required="" class="form-control">
                     <span class="input-group-btn">
-                  <button type="submit" class="btn btn-primary"> Subscribe <i class="ion-android-send"></i> </button>
+                  <button type="submit" class="btn btn-primary"> Suscríbete <i class="ion-android-send"></i> </button>
                 </span>
                 </div><!-- /input-group -->
             </form>
@@ -287,22 +288,22 @@
 
         <div class="row menu">
             <div class="col-sm-3 col-md-2">
-                <h1 class="h4">Information <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+                <h1 class="h4">Información <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
 
                 <div class="list-group">
-                    <a href="#" class="list-group-item">About</a>
-                    <a href="#" class="list-group-item">Terms</a>
-                    <a href="#" class="list-group-item">How to order</a>
+                    <a href="#" class="list-group-item">Acerca de</a>
+                    <a href="#" class="list-group-item">Terminos</a>
+                    <a href="#" class="list-group-item">Como ordenar</a>
                     <a href="#" class="list-group-item">Delivery</a>
                 </div>
             </div>
             <div class="col-sm-3 col-md-2">
-                <h1 class="h4">Products <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+                <h1 class="h4">Productos <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
 
                 <div class="list-group">
                     <a href="#" class="list-group-item">Laptops</a>
-                    <a href="#" class="list-group-item">Tablets</a>
-                    <a href="#" class="list-group-item">Servers</a>
+                    <a href="#" class="list-group-item">Computadoras</a>
+                    <a href="#" class="list-group-item">Servidores</a>
                 </div>
             </div>
             <div class="col-sm-3 col-md-2">
@@ -315,34 +316,6 @@
                 </div>
             </div>
             <div class="col-sm-3 col-md-2">
-                <h1 class="h4">Location</h1>
-
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Language
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#English"> <img src="{{ asset('landing/assets/img/flags/gb.png') }}" alt="Eng"/> English</a></li>
-                        <li><a href="#Spanish"> <img src="{{ asset('landing/assets/img/flags/es.png') }}" alt="Spa"/> Spanish</a></li>
-                        <li><a href="#Deutch"> <img src="{{ asset('landing/assets/img/flags/de.png') }}" alt="De"/> Deutch</a></li>
-                        <li><a href="#French"> <img src="{{ asset('landing/assets/img/flags/fr.png') }}" alt="Fr"/> French</a></li>
-                    </ul>
-                </div>
-                <hr class="offset-xs">
-
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Currency
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><a href="#Euro"><i class="ion-social-euro"></i> Euro</a></li>
-                        <li><a href="#Dollar"><i class="ion-social-usd"></i> Dollar</a></li>
-                        <li><a href="#Yen"><i class="ion-social-yen"></i> Yen</a></li>
-                        <li><a href="#Bitcoin"><i class="ion-social-bitcoin"></i> Bitcoin</a></li>
-                    </ul>
-                </div>
 
             </div>
             <div class="col-sm-3 col-md-3 col-md-offset-1 align-right hidden-sm hidden-xs">
@@ -355,8 +328,8 @@
                 </address>
 
                 <address>
-                    <strong>Support</strong><br>
-                    <a href="mailto:#">contac@pc-hard.com</a>
+                    <strong>Atencion al Cliente</strong><br>
+                    <a href="mailto:#">atencionalcliente@pc-hard.com</a>
                 </address>
 
             </div>
@@ -383,7 +356,7 @@
             <div class="col-sm-4 col-md-3 align-right align-center-xs">
                 <hr class="offset-sm hidden-sm">
                 <hr class="offset-sm">
-                <p>pc-hard.com © 2023 <br> Designed By <a href="https://www.pc-hard.com/" target="_blank">PcHard SAC</a></p>
+                <p>PsHard SAC © 2023 <br> Designed By <a href="https://www.pc-hard.com/" target="_blank">PcHard SAC</a></p>
                 <hr class="offset-lg visible-xs">
             </div>
         </div>
