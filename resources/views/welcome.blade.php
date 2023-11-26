@@ -1,17 +1,17 @@
 <!-- Welcome -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> Unistore </title>
+    <title> Pc Hard | Pchard SAC </title>
 
-    <meta name="description" content="Bootstrap template for you store - E-Commerce Bootstrap Template">
-    <meta name="keywords" content="unistore, e-commerce bootstrap template, premium e-commerce bootstrap template, premium bootstrap template, bootstrap template, e-commerce, bootstrap template, sunrise digital">
-    <meta name="author" content="Sunrise Digital">
+    <meta name="description" content="Pchard SAC es una empresa peruana que brinda servicios de soporte técnico y venta de ordenadores y laptops">
+    <meta name="keywords" content="pchard, pc hard, pchard sac, soporte tecnico, venta de computadoras, soporte tecnico a domicilio, reparacion, accesorios de computo, suministros, impresoras">
+    <meta name="author" content="José Zapana">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('landing/assets/favicon.png')}}">
 
     <!-- Bootstrap -->
@@ -39,7 +39,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="./"> <i class="ion-cube"></i> Unistore</a>
+            <a class="navbar-brand" href="./"> <i class="ion-cube"></i> Pc-Hard</a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
@@ -346,17 +346,17 @@
 
             </div>
             <div class="col-sm-3 col-md-3 col-md-offset-1 align-right hidden-sm hidden-xs">
-                <h1 class="h4">Unistore, Inc.</h1>
+                <h1 class="h4">PcHard S.A.C.</h1>
 
                 <address>
-                    1305 Market Street, Suite 800<br>
-                    San Francisco, CA 94102<br>
-                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                    Lima<br>
+                    Perú<br>
+                    <abbr title="Phone">P:</abbr> (51) 957686487
                 </address>
 
                 <address>
                     <strong>Support</strong><br>
-                    <a href="mailto:#">sup@example.com</a>
+                    <a href="mailto:#">contac@pc-hard.com</a>
                 </address>
 
             </div>
@@ -368,7 +368,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 col-md-9 payments">
-                <p>Pay your order in the most convenient way</p>
+                <p>Paga tu pedido de la forma más cómoda</p>
 
                 <div class="payment-icons">
                     <img src="{{ asset('landing/assets/img/payments/paypal.svg') }}" alt="paypal">
@@ -383,7 +383,7 @@
             <div class="col-sm-4 col-md-3 align-right align-center-xs">
                 <hr class="offset-sm hidden-sm">
                 <hr class="offset-sm">
-                <p>Unistore Pro © 2016 <br> Designed By <a href="http://sunrise.ru.com/" target="_blank">Sunrise Digital</a></p>
+                <p>pc-hard.com © 2023 <br> Designed By <a href="https://www.pc-hard.com/" target="_blank">PcHard SAC</a></p>
                 <hr class="offset-lg visible-xs">
             </div>
         </div>
@@ -401,7 +401,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h4 class="modal-title">Forgot Your Password?</h4>
+                            <h4 class="modal-title">¿Olvidaste tu contraseña?</h4> 
                             <br>
 
                             <form class="join" action="#" method="post">
@@ -415,7 +415,7 @@
                         <div class="col-sm-6">
                             <br><br>
                             <p>
-                                Enter the e-mail address associated with your account. Click submit to have your password e-mailed to you.
+                                Ingrese la dirección de correo electrónico asociada con su cuenta. Haga clic en enviar para recibir su contraseña por correo electrónico.
                             </p>
                         </div>
                     </div>
