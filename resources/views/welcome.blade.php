@@ -97,9 +97,9 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm-12 align-center">
-                                        <h1>New amazing laptops</h1>
-                                        <p>Provide lightweight and powerull</p>
-                                        <a href="#">More laptops ></a>
+                                        <h1>Equipos de cómputo</h1>
+                                        <p>A tu medida</p>
+                                        <a href="#">Nuestro Catálogo ></a>
                                         <br><br>
                                     </div>
                                     <div class="col-sm-6 col-sm-offset-3 align-center">
@@ -123,9 +123,9 @@
                                         <img src="{{asset('landing/assets/img/carousel/surfaces.jpg')}}" alt="Surface Pro"/>
                                     </div>
                                     <div class="col-sm-12 align-center">
-                                        <h1>8 Windows Hybrid Laptops</h1>
-                                        <p>The laptop comes with an Intel i5 chip and 8GB of RAM.</p>
-                                        <a href="#">View surfaces ></a>
+                                        <h1>Servicio Técnico</h1>
+                                        <p>Computadoras y Laptops</p>
+                                        <a href="#">Contactanos ></a>
                                     </div>
                                 </div>
                             </div>
@@ -148,14 +148,13 @@
                                     <div class="col-sm-4 align-left">
                                         <br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm">
                                         <br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm">
-                                        <h1>Luxury devices</h1>
+                                        <h1>Repotencia tu equipo</h1>
                                         <br>
 
                                         <p>
-                                            Luxury watches, business tablets and 3D touch: How Apple plans to stay ahead in mobile.
-                                            When it comes to the brand’s latest iPhones, the biggest excitement isn’t focused on the addition of a rose gold coloured device but the new 3D touch sensors.
+                                            Mejora al máximo tu Pc o Laptop.
                                         </p>
-                                        <a href="#">View article ></a>
+                                        <a href="#">Contactanos ></a>
                                     </div>
                                 </div>
                             </div>

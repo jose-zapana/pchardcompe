@@ -13,7 +13,7 @@
 @endsection
 
 @section('title')
-    Unistore | Catálago
+    Pc-Hard | Catálago
 @endsection
 
 @section('content')

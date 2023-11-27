@@ -19,7 +19,7 @@
 @endsection
 
 @section('title')
-    Unistore | Producto
+    Pc-Hard | Producto
 @endsection
 
 @section('content')
