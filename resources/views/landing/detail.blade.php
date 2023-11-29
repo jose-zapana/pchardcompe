@@ -89,8 +89,8 @@
                     <br><br>
 
                     <div class="talk">
-                        <h2 class="h3">Do you have any questions?</h2>
-                        <p>Online chat with our manager</p>
+                        <h2 class="h3">¿Tienes alguna duda?</h2>
+                        <p>Chat en línea con nuestros Asesores</p>
 
                         <button class="btn btn-default btn-sm"> <i class="ion-android-contact"></i> Lat's talk </button>
                     </div>
