@@ -66,7 +66,7 @@
 
                 <br>
 
-                <!-- <div class="item">
+                 <!-- <div class="item">
                     <div class="title">
                         <a href="#clear" data-action="open" class="down"> <i class="ion-android-arrow-dropdown"></i> Open</a>
                         <a href="#clear" data-action="clear"> <i class="ion-ios-trash-outline"></i> Clear</a>
@@ -110,7 +110,7 @@
                             <input type="checkbox" name="checkbox" value="">
                         </div>
                     </div>
-                </div> -->
+                </div>  -->
 
                 <br>
 
