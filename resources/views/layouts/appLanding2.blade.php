@@ -1,6 +1,6 @@
 <!-- appLanding -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,9 +47,9 @@
 
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="@yield('activeHome')"><a href="#">Inicio</a></li>
+                <li class="@yield('activeHome')"><a href="{{ url('/') }}">Inicio</a></li>
                 <li class="@yield('activeShop')"><a href="{{ route('landing.catalog') }}">Catálogo</a></li>
-                <li class="@yield('activeCategories')"><a href="#">Categorías</a></li>
+                <!-- <li class="@yield('activeCategories')"><a href="#">Categorías</a></li> -->
                 @auth()
                     <li class="@yield('activeOrders')"><a href="#">Pedidos</a></li>
                     <li class="@yield('activeAddress')"><a href="#">Direcciones</a></li>

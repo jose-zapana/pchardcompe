@@ -47,7 +47,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/') }}">Inicio</a></li>
                 <li><a href="{{ route('landing.catalog') }}">Catálogo</a></li>
-                <li><a href="#">Categorías</a></li>
+                <!-- <li><a href="#">Categorías</a></li> -->
                 @auth()
                     <li><a href="#">Pedidos</a></li>
                     <li><a href="#">Direcciones</a></li>
@@ -97,13 +97,13 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm-12 align-center">
-                                        <h1>Equipos de cómputo</h1>
-                                        <p>A tu medida</p>
-                                        <a href="#">Nuestro Catálogo ></a>
+                                        <h1>Servicio Técnico a Domicilio</h1>
+                                        <p>Computadoras y Laptops</p>
+                                        <a href="#">Contactanos ></a>
                                         <br><br>
                                     </div>
                                     <div class="col-sm-6 col-sm-offset-3 align-center">
-                                        <img src="{{asset('landing/assets/img/carousel/newlaptops.jpg')}}" alt="Laptops"/>
+                                        <img src="{{asset('landing/assets/img/carousel/soporte.png')}}" alt="Soporte Técnico Pc"/>
                                     </div>
                                 </div>
                             </div>
@@ -120,11 +120,11 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm-8 col-sm-offset-2 align-center">
-                                        <img src="{{asset('landing/assets/img/carousel/surfaces.jpg')}}" alt="Surface Pro"/>
+                                        <img src="{{asset('landing/assets/img/carousel/pc-hard-cases.png')}}" alt="Pc-HARD-Cases"/>
                                     </div>
                                     <div class="col-sm-12 align-center">
-                                        <h1>Servicio Técnico</h1>
-                                        <p>Computadoras y Laptops</p>
+                                        <h1>Arma tu PC</h1>
+                                        <p>Diseña tu Pc con Pc-Hard</p>
                                         <a href="#">Contactanos ></a>
                                     </div>
                                 </div>
@@ -142,17 +142,17 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm-5 col-sm-offset-1 align-center">
-                                        <img src="{{asset('landing/assets/img/carousel/ipadair2.jpg')}}" alt="iPad Air 2" class="hidden-xs hidden-sm"/>
-                                        <img src="{{asset('landing/assets/img/carousel/ipadair2m.jpg')}}" alt="iPad Air 2" class="hidden-md hidden-lg"/>
+                                        <img src="{{asset('landing/assets/img/carousel/pchard1.png')}}" alt="iPad Air 2" class="hidden-xs hidden-sm"/>
+                                        <img src="{{asset('landing/assets/img/carousel/pchard1m.png')}}" alt="iPad Air 2" class="hidden-md hidden-lg"/>
                                     </div>
                                     <div class="col-sm-4 align-left">
                                         <br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm">
                                         <br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm">
-                                        <h1>Repotencia tu equipo</h1>
+                                        <h1>Personaliza tu equipo</h1>
                                         <br>
 
                                         <p>
-                                            Mejora al máximo tu Pc o Laptop.
+                                            A tus necesidades.
                                         </p>
                                         <a href="#">Contactanos ></a>
                                     </div>
@@ -165,9 +165,9 @@
         </div>
 
         <ul class="markers">
-            <li data-marker="1"><img src="{{asset('landing/assets/img/carousel/newlaptops.jpg')}}" alt="Background"/></li>
+            <li data-marker="1"><img src="{{asset('landing/assets/img/carousel/soporte.png')}}" alt="Background"/></li>
             <li data-marker="2" class="active"><img src="{{asset('landing/assets/img/carousel/surfaces.jpg')}}" alt="Background"/></li>
-            <li data-marker="3"><img src="{{asset('landing/assets/img/carousel/ipadair2.jpg')}}" alt="Background"/></li>
+            <li data-marker="3"><img src="{{asset('landing/assets/img/carousel/pchard1.png')}}" alt="Background"/></li>
         </ul>
     </div>
 </header>
