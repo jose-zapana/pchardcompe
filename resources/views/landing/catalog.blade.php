@@ -20,7 +20,7 @@
     <div class="container tags">
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="ion-arrow-down-b"></i> Sorting by name
+                <i class="ion-arrow-down-b"></i> Ordenar por nombre
             </button>
             <ul class="dropdown-menu">
                 <li class="active"><a href="#"> <i class="ion-arrow-down-c"></i> Name [A-Z]</a></li>
@@ -30,10 +30,10 @@
             </ul>
         </div>
 
-        <p>Search by tags</p>
+        <p>Buscar por etiquetas</p>
         <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default btn-xs active">
-                <input type="radio" name="options" id="option1" checked> All products
+                <input type="radio" name="options" id="option1" checked> Todos los productos
             </label>
             @foreach( $categories as $category )
             <label class="btn btn-default btn-xs">
@@ -50,33 +50,23 @@
                     <div class="title">
                         <a href="#clear" data-action="open" class="down"> <i class="ion-android-arrow-dropdown"></i> Open</a>
                         <a href="#clear" data-action="clear"> <i class="ion-ios-trash-outline"></i> Clear</a>
-                        <h1 class="h4">Type</h1>
+                        <h1 class="h4">Tipo</h1>
                     </div>
-
                     <div class="controls">
-                        <div class="checkbox-group" data-status="inactive">
-                            <div class="checkbox"><i class="ion-android-done"></i></div>
-                            <div class="label" data-value="Laptops">Laptops</div>
-                            <input type="checkbox" name="checkbox" value="">
-                        </div>
 
-                        <div class="checkbox-group" data-status="inactive">
+                    @foreach( $categories as $category )
+                    <div class="checkbox-group" data-status="inactive">
                             <div class="checkbox"><i class="ion-android-done"></i></div>
-                            <div class="label" data-value="Tablets">Tablets</div>
+                            <div class="label" data-value="Laptops">{{ $category->name }}</div>
                             <input type="checkbox" name="checkbox" value="">
-                        </div>
-
-                        <div class="checkbox-group" data-status="inactive">
-                            <div class="checkbox"><i class="ion-android-done"></i></div>
-                            <div class="label" data-value="Hybrid">Hybrids</div>
-                            <input type="checkbox" name="checkbox" value="">
-                        </div>
                     </div>
+                    @endforeach
+
                 </div>
 
                 <br>
 
-                <div class="item">
+                 <!-- <div class="item">
                     <div class="title">
                         <a href="#clear" data-action="open" class="down"> <i class="ion-android-arrow-dropdown"></i> Open</a>
                         <a href="#clear" data-action="clear"> <i class="ion-ios-trash-outline"></i> Clear</a>
@@ -120,7 +110,7 @@
                             <input type="checkbox" name="checkbox" value="">
                         </div>
                     </div>
-                </div>
+                </div>  -->
 
                 <br>
 
