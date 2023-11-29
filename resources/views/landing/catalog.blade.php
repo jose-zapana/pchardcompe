@@ -61,6 +61,7 @@
                             <input type="checkbox" name="checkbox" value="">
                     </div>
                     @endforeach
+                    </div>
 
                 </div>
 
