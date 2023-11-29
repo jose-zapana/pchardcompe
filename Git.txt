@@ -1,0 +1,39 @@
+password
+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
+Clonar Proyecto Larave
+==================
+git clone https://github.com/arcadio1894/unistore.git
+
+git clone https://github.com/arcadio1894/TrabajoVueLaravel.gitgit 
+
+Ingresar a la carpeta donde clonaste e installar el Compose
+==================
+composer install
+Cambias de nombre le env.example por env. y ejecutas
+==================
+php artisan key:generate
+
+Actualizar el fichero
+==================
+git pull origin master
+
+Crear una RAMA
+==================
+git checkout -b jose-zapana
+
+Verificar tus cambios
+=================c
+git status
+
+agregar todos los cambios
+=================
+git add .
+
+comentarios
+=================
+git commit -m "Creado Rama :)"
+Subir la RAMA
+==================
+git push origin jose-zapana
+composer require laravel/ui:^2.4
+php artisan ui vue --auth

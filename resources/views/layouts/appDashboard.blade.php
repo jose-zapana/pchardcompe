@@ -1,6 +1,6 @@
 <!-- appDashboard -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
@@ -69,7 +69,7 @@
             <a href="{{ url('/') }}" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
-                    Unistore
+                    Pc-Hard
                 </small>
             </a>
         </div>
@@ -85,7 +85,7 @@
                     <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
                         <li class="dropdown-footer">
                             <a href="inbox.html">
-                                See all messages
+                                Ver todos los mensajes
                                 <i class="ace-icon fa fa-arrow-right"></i>
                             </a>
                         </li>
@@ -107,7 +107,7 @@
                         <li>
                             <a href="#">
                                 <i class="ace-icon fa fa-cog"></i>
-                                Settings
+                                Configuración
                             </a>
                         </li>
 

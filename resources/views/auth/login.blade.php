@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-    Unistore | Login
+    Pc-Hard | Accede a tu cuenta
 @endsection
 
 @section('content')
@@ -34,23 +34,23 @@
             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
             <label class="form-check-label" for="remember">
-                {{ __('Remember Me') }}
+                {{ __('Recuérdame') }}
             </label>
 
             <br>
 
-            <button type="submit" class="btn btn-primary">Sign In</button>
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
             @if (Route::has('password.request'))
-                <a href="#forgin-password" data-action="Forgot-Password" class="xs-margin">Password recovery ></a>
+                <a href="#forgin-password" data-action="Forgot-Password" class="xs-margin">Recuperación de contraseña ></a>
             @endif
             <br><br>
 
             <p>
-                If you already have an account with us, please login.
+                Si ya tiene una cuenta con nosotros, inicie sesión.
             </p>
             <hr class="offset-xs">
 
-            <a href="{{ route('social.auth', 'facebook') }}" class="btn btn-facebook"> <i class="ion-social-facebook"></i> Login with Facebook </a>
+            <!-- <a href="{{ route('social.auth', 'facebook') }}" class="btn btn-facebook"> <i class="ion-social-facebook"></i> Login with Facebook </a>
             <hr class="offset-sm">
 
             <a href="{{ route('social.auth', 'github') }}" class="btn btn-success btn-block"> <i class="ion-social-github"></i> Login with Github </a>
@@ -60,7 +60,7 @@
             <hr class="offset-sm">
 
             <a href="{{ route('social.auth', 'google') }}" class="btn btn-danger btn-block"> <i class="ion-social-google"></i> Login with Google </a>
-            <hr class="offset-sm">
+            <hr class="offset-sm"> -->
 
             <p>
                 No tienes una cuenta? Crear una ahora! <a href="{{ route('register') }}"> Crea cuenta > </a>

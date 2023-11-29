@@ -64,7 +64,7 @@
 
             <br><br>
             <p>
-                By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.
+                Al crear una cuenta, podrá comprar más rápido, estar actualizado sobre el estado de un pedido y realizar un seguimiento de los pedidos que haya realizado anteriormente.
             </p>
         </form>
 
