@@ -166,7 +166,7 @@
 
         <ul class="markers">
             <li data-marker="1"><img src="{{asset('landing/assets/img/carousel/soporte.png')}}" alt="Background"/></li>
-            <li data-marker="2" class="active"><img src="{{asset('landing/assets/img/carousel/surfaces.jpg')}}" alt="Background"/></li>
+            <li data-marker="2" class="active"><img src="{{asset('landing/assets/img/carousel/pc-hard-cases.png')}}" alt="Background"/></li>
             <li data-marker="3"><img src="{{asset('landing/assets/img/carousel/pchard1.png')}}" alt="Background"/></li>
         </ul>
     </div>
@@ -176,12 +176,12 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-3 align-center">
-            <a href="#">
+            <a href="https://www.pc-hard.com/blog/">
                 <img src="{{ asset('landing/assets/img/tiles/blog.jpg') }}" alt="Blog" class="image"/>
             </a>
             <br><br>
 
-            <a href="#">Titulares de blogs</a>
+            <a href="https://www.pc-hard.com/blog/">Nuestro blog</a>
         </div>
         <div class="col-sm-3 align-center">
             <a href="#video" data-gallery="#video" data-source="vimeo" data-id="110691368" data-id="110691368" data-title="Apple iPad Air" data-description="So capable, you won’t want to put it down. So thin and light, you won’t have to.">
@@ -200,12 +200,12 @@
             <a href="#video" data-gallery="#video" data-source="youtube" data-id="6g-ZIm0wge4" data-title="Best New Dell Laptops" data-description="Best of dell's laptops that you can consider buying in 2016. 4 Laptops are featured in the video and all of them has equal importance and there is no order that #1 is better than #2">Brend new DELL XPS</a>
         </div>
         <div class="col-sm-3 align-center">
-            <a href="#">
+            <a href="{{ route('landing.catalog') }}">
                 <img src="{{ asset('landing/assets/img/tiles/gallery.jpg') }}" alt="Gallery" class="image"/>
             </a>
             <br><br>
 
-            <a href="#">Galería de productos</a>
+            <a href="{{ route('landing.catalog') }}">Catálogo de productos</a>
         </div>
     </div>
 </div>
@@ -226,7 +226,7 @@
                 <div class="col-xs-6 col-sm-3">
                     <div class="item">
                         <i class="ion-ios-star-outline"></i>
-                        <h1>Garantías <br> <span>Representante | Fabricante</span></h1>
+                        <h1>Productos con Garantía <br> <span>Representante | Fabricante</span></h1>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-3">
@@ -311,7 +311,7 @@
                 <div class="list-group">
                     <a href="#" class="list-group-item">Returns</a>
                     <a href="#" class="list-group-item">FAQ</a>
-                    <a href="#" class="list-group-item">Contacts</a>
+                    <a href="#" class="list-group-item">Contacto</a>
                 </div>
             </div>
             <div class="col-sm-3 col-md-2">
@@ -319,7 +319,6 @@
             </div>
             <div class="col-sm-3 col-md-3 col-md-offset-1 align-right hidden-sm hidden-xs">
                 <h1 class="h4">PcHard S.A.C.</h1>
-
                 <address>
                     Lima<br>
                     Perú<br>
@@ -355,7 +354,7 @@
             <div class="col-sm-4 col-md-3 align-right align-center-xs">
                 <hr class="offset-sm hidden-sm">
                 <hr class="offset-sm">
-                <p>PsHard SAC © 2023 <br> Designed By <a href="https://www.pc-hard.com/" target="_blank">PcHard SAC</a></p>
+                <p>Pchard S.A.C. © 2023 <br> Desarrollado por <a href="https://www.linkedin.com/in/jzapana/" target="_blank">José Zapana</a></p>
                 <hr class="offset-lg visible-xs">
             </div>
         </div>

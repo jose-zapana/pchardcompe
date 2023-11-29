@@ -464,8 +464,8 @@
         <div class="footer-inner">
             <div class="footer-content">
                 <span class="bigger-120">
-                    <span class="blue bolder">Unistore</span>
-                    Application &copy; 2021
+                    <span class="blue bolder">Pc-Hard</span>
+                    App &copy; 2023
                 </span>
 
                 &nbsp; &nbsp;
